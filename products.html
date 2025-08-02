@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MotoRanger</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for products page */
+        .products-section {
+            padding: 120px 0 80px;
+        }
+        
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-color);
+        }
+        
+        .search-bar {
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            color: var(--text-color);
+            font-family: var(--font-primary);
+            font-size: 1rem;
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-light);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+        }
+        
+        /* Pagination styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 5px;
+        }
+        
+        .page-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .page-item:hover, .page-item.active {
+            background-color: var(--primary-color);
+        }
+        
+        .page-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header scrolled">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="MotoRanger Logo">
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html" class="active">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p>Discover our range of high-quality automotive lighting solutions</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="product-search" class="search-input" placeholder="Search products...">
+            </div>
+            
+            <!-- Category Filter -->
+            <div class="category-filter" id="category-filter">
+                <button class="filter-btn active" data-category="all">All Products</button>
+                <!-- Categories will be loaded from JSON -->
+            </div>
+            
+            <!-- Products Grid -->
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded from JSON -->
+            </div>
+            
+            <!-- No Results Message -->
+            <div class="no-results" id="no-results" style="display: none;">
+                <h3>No products found</h3>
+                <p>Try a different search term or category</p>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <!-- Pagination will be generated dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to enhance your vehicle?</h2>
+                <p>Get in touch with us to learn more about our products or make a purchase</p>
+                <a href="https://wa.me/1234567890" class="btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="MotoRanger Logo" class="footer-logo-img">
+                    <p>Unleash the Performance</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@motoranger.com</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MotoRanger. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Buy Now</span>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        // Products Page Specific JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const productSearchInput = document.getElementById('product-search');
+            const categoryFilter = document.getElementById('category-filter');
+            const productsContainer = document.getElementById('products-container');
+            const noResultsMessage = document.getElementById('no-results');
+            const paginationContainer = document.getElementById('pagination');
+            
+            // Variables
+            let allProducts = [];
+            let filteredProducts = [];
+            let currentCategory = 'all';
+            let currentPage = 1;
+            const productsPerPage = 8;
+            
+            // Fetch all products
+            async function fetchAllProducts() {
+                try {
+                    const response = await fetch('data/products.json');
+                    allProducts = await response.json();
+                    filteredProducts = [...allProducts];
+                    
+                    // Initial render
+                    renderProducts();
+                    setupPagination();
+                } catch (error) {
+                    console.error('Error loading products:', error);
+                    // Load sample products if JSON fails
+                    loadSampleProducts();
+                }
+            }
+            
+            // Fetch categories for filter
+            async function fetchCategories() {
+                try {
+                    const response = await fetch('data/categories.json');
+                    const categories = await response.json();
+                    
+                    // Render category filter buttons
+                    categories.forEach(category => {
+                        const button = document.createElement('button');
+                        button.className = 'filter-btn';
+                        button.setAttribute('data-category', category.id);
+                        button.textContent = category.name;
+                        
+                        button.addEventListener('click', () => {
+                            filterByCategory(category.id);
+                        });
+                        
+                        categoryFilter.appendChild(button);
+                    });
+                } catch (error) {
+                    console.error('Error loading categories:', error);
+                }
+            }
+            
+            // Filter products by category
+            function filterByCategory(categoryId) {
+                // Update active button
+                const filterButtons = categoryFilter.querySelectorAll('.filter-btn');
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-category') == categoryId) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                currentCategory = categoryId;
+                currentPage = 1;
+                
+                // Apply filters
+                applyFilters();
+            }
+            
+            // Filter products by search term
+            function filterBySearchTerm(searchTerm) {
+                if (!searchTerm) {
+                    if (currentCategory === 'all') {
+                        filteredProducts = [...allProducts];
+                    } else {
+                        filteredProducts = allProducts.filter(product => 
+                            product.categoryId == currentCategory
+                        );
+                    }
+                } else {
+                    const term = searchTerm.toLowerCase();
+                    
+                    if (currentCategory === 'all') {
+                        filteredProducts = allProducts.filter(product => 
+                            product.name.toLowerCase().includes(term) ||
+                            product.description.toLowerCase().includes(term)
+                        );
+                    } else {
+                        filteredProducts = allProducts.filter(product => 
+                            product.categoryId == currentCategory &&
+                            (product.name.toLowerCase().includes(term) ||
+                            product.description.toLowerCase().includes(term))
+                        );
+                    }
+                }
+                
+                // Render filtered products
+                renderProducts();
+                setupPagination();
+            }
+            
+            // Apply all filters
+            function applyFilters() {
+                const searchTerm = productSearchInput.value.trim();
+                filterBySearchTerm(searchTerm);
+            }
+            
+            // Render products with pagination
+            function renderProducts() {
+                productsContainer.innerHTML = '';
+                
+                // Calculate pagination
+                const startIndex = (currentPage - 1) * productsPerPage;
+                const endIndex = startIndex + productsPerPage;
+                const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+                
+                // Show/hide no results message
+                if (filteredProducts.length === 0) {
+                    noResultsMessage.style.display = 'block';
+                } else {
+                    noResultsMessage.style.display = 'none';
+                    
+                    // Render paginated products
+                    paginatedProducts.forEach(product => {
+                        const productCard = createProductCard(product);
+                        productsContainer.appendChild(productCard);
+                    });
+                }
+            }
+            
+            // Setup pagination
+            function setupPagination() {
+                const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+                paginationContainer.innerHTML = '';
+                
+                // Previous button
+                const prevBtn = document.createElement('div');
+                prevBtn.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+                prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                
+                if (currentPage > 1) {
+                    prevBtn.addEventListener('click', () => {
+                        currentPage--;
+                        renderProducts();
+                        setupPagination();
+                    });
+                }
+                
+                paginationContainer.appendChild(prevBtn);
+                
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageItem = document.createElement('div');
+                    pageItem.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                    pageItem.textContent = i;
+                    
+                    pageItem.addEventListener('click', () => {
+                        currentPage = i;
+                        renderProducts();
+                        setupPagination();
+                    });
+                    
+                    paginationContainer.appendChild(pageItem);
+                }
+                
+                // Next button
+                const nextBtn = document.createElement('div');
+                nextBtn.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+                nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                
+                if (currentPage < totalPages) {
+                    nextBtn.addEventListener('click', () => {
+                        currentPage++;
+                        renderProducts();
+                        setupPagination();
+                    });
+                }
+                
+                paginationContainer.appendChild(nextBtn);
+            }
+            
+            // Event listeners
+            productSearchInput.addEventListener('input', () => {
+                currentPage = 1;
+                applyFilters();
+            });
+            
+            // Initialize
+            fetchAllProducts();
+            fetchCategories();
+            
+            // Fallback sample products
+            function loadSampleProducts() {
+                allProducts = [
+                    {
+                        id: 1,
+                        name: "LED Light Bar 52\"",
+                        description: "Super bright LED light bar with 300W output for off-road adventures",
+                        image: "images/products/light-bar.jpg",
+                        categoryId: 1
+                    },
+                    {
+                        id: 2,
+                        name: "Round LED Fog Lights",
+                        description: "Waterproof fog lights with universal mounting brackets",
+                        image: "images/products/fog-lights.jpg",
+                        categoryId: 2
+                    },
+                    {
+                        id: 3,
+                        name: "LED Headlight Upgrade Kit",
+                        description: "High-performance LED headlight upgrade with 200% brightness",
+                        image: "images/products/headlight.jpg",
+                        categoryId: 3
+                    },
+                    {
+                        id: 4,
+                        name: "Work Light 4\"",
+                        description: "Compact work light with 50W output for various applications",
+                        image: "images/products/work-light.jpg",
+                        categoryId: 4
+                    },
+                    {
+                        id: 5,
+                        name: "Curved LED Light Bar 42\"",
+                        description: "Curved design for wider light spread and better visibility",
+                        image: "images/products/light-bar.jpg",
+                        categoryId: 1
+                    },
+                    {
+                        id: 6,
+                        name: "Square LED Fog Lights",
+                        description: "Square fog lights with rugged housing for extreme conditions",
+                        image: "images/products/fog-lights.jpg",
+                        categoryId: 2
+                    },
+                    {
+                        id: 7,
+                        name: "RGB Headlight Halos",
+                        description: "Customizable RGB halos for a unique look with smartphone control",
+                        image: "images/products/headlight.jpg",
+                        categoryId: 3
+                    },
+                    {
+                        id: 8,
+                        name: "Mini Work Light 2\"",
+                        description: "Ultra-compact work light for tight spaces and precision tasks",
+                        image: "images/products/work-light.jpg",
+                        categoryId: 4
+                    },
+                    {
+                        id: 9,
+                        name: "Mounting Brackets",
+                        description: "Universal mounting brackets for various light bar applications",
+                        image: "images/products/accessories.jpg",
+                        categoryId: 5
+                    },
+                    {
+                        id: 10,
+                        name: "LED Interior Light Kit",
+                        description: "Complete interior lighting kit with multiple color options",
+                        image: "images/products/interior-lights.jpg",
+                        categoryId: 6
+                    }
+                ];
+                
+                filteredProducts = [...allProducts];
+                renderProducts();
+                setupPagination();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - MotoRanger</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for gallery page */
+        .gallery-section {
+            padding: 120px 0 80px;
+        }
+        
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--text-color);
+        }
+        
+        .gallery-full-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: var(--text-color);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            background-color: var(--bg-darker);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 2rem;
+            color: var(--text-color);
+            cursor: pointer;
+            z-index: 10;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--primary-color);
+        }
+        
+        .image-container {
+            max-width: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            width: 100%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .modal-info {
+            padding: 20px;
+        }
+        
+        .modal-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .modal-info p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-darker);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header scrolled">
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="MotoRanger Logo">
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html" class="active">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Gallery</h2>
+                <p>See our products in action and customer installations</p>
+            </div>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="image">Images</button>
+                <button class="filter-btn" data-filter="video">Videos</button>
+                <button class="filter-btn" data-filter="installation">Installations</button>
+                <button class="filter-btn" data-filter="product">Product Showcase</button>
+            </div>
+            
+            <!-- Gallery Grid -->
+            <div class="gallery-full-grid" id="gallery-grid">
+                <!-- Gallery items will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-container"></div>
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call To Action Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to enhance your vehicle?</h2>
+                <p>Get in touch with us to learn more about our products or make a purchase</p>
+                <a href="https://wa.me/1234567890" class="btn whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="MotoRanger Logo" class="footer-logo-img">
+                    <p>Unleash the Performance</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@motoranger.com</p>
+                    <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MotoRanger. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Buy Now</span>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    <script>
+        // Gallery Page Specific JavaScript
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const preloader = document.querySelector('.preloader');
+            const galleryGrid = document.getElementById('gallery-grid');
+            const galleryModal = document.getElementById('gallery-modal');
+            const modalContainer = document.getElementById('modal-container');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+            const closeModal = document.querySelector('.close-modal');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            // Variables
+            let galleryItems = [];
+            let currentFilter = 'all';
+            
+            // Load gallery items from JSON
+            async function loadGalleryItems() {
+                try {
+                    const response = await fetch('data/gallery.json');
+                    galleryItems = await response.json();
+                    
+                    // Add categories for filtering
+                    galleryItems = galleryItems.map(item => {
+                        // Assign random categories for demo
+                        const categories = ['installation', 'product'];
+                        const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+                        return { ...item, category: item.type === 'video' ? 'video' : randomCategory };
+                    });
+                    
+                    renderGalleryItems();
+                    
+                    // Hide preloader
+                    setTimeout(() => {
+                        preloader.classList.add('loaded');
+                    }, 500);
+                    
+                } catch (error) {
+                    console.error('Error loading gallery:', error);
+                    // Load sample gallery if JSON fails
+                    loadSampleGallery();
+                }
+            }
+            
+            // Render gallery items based on filter
+            function renderGalleryItems() {
+                galleryGrid.innerHTML = '';
+                
+                const filteredItems = currentFilter === 'all' 
+                    ? galleryItems 
+                    : galleryItems.filter(item => item.category === currentFilter);
+                
+                filteredItems.forEach(item => {
+                    const galleryItem = createGalleryItem(item);
+                    galleryGrid.appendChild(galleryItem);
+                });
+            }
+            
+            // Create gallery item element
+            function createGalleryItem(item) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-category', item.category);
+                
+                // Check if it's a video or image
+                if (item.type === 'video') {
+                    galleryItem.innerHTML = `
+                        <img src="${item.thumbnail}" alt="${item.title}">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    `;
+                } else {
+                    galleryItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    `;
+                }
+                
+                // Open modal on click
+                galleryItem.addEventListener('click', () => {
+                    openModal(item);
+                });
+                
+                return galleryItem;
+            }
+            
+            // Open modal with item content
+            function openModal(item) {
+                modalContainer.innerHTML = '';
+                
+                if (item.type === 'video') {
+                    modalContainer.innerHTML = `
+                        <div class="video-container">
+                            <iframe src="${item.videoUrl}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    `;
+                } else {
+                    modalContainer.innerHTML = `
+                        <div class="image-container">
+                            <img src="${item.image}" alt="${item.title}">
+                        </div>
+                    `;
+                }
+                
+                modalTitle.textContent = item.title;
+                modalDescription.textContent = item.description;
+                
+                // Show modal
+                galleryModal.classList.add('open');
+                
+                // Prevent scrolling on body
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Close modal
+            function closeGalleryModal() {
+                galleryModal.classList.remove('open');
+                
+                // Re-enable scrolling
+                document.body.style.overflow = '';
+                
+                // Stop video if playing
+                const iframe = modalContainer.querySelector('iframe');
+                if (iframe) {
+                    const iframeSrc = iframe.src;
+                    iframe.src = iframeSrc;
+                }
+            }
+            
+            // Filter gallery items
+            function filterGallery(filter) {
+                currentFilter = filter;
+                
+                // Update active button
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-filter') === filter) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                renderGalleryItems();
+            }
+            
+            // Event listeners
+            closeModal.addEventListener('click', closeGalleryModal);
+            
+            galleryModal.addEventListener('click', (e) => {
+                if (e.target === galleryModal) {
+                    closeGalleryModal();
+                }
+            });
+            
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+                    filterGallery(filter);
+                });
+            });
+            
+            // Keyboard events
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && galleryModal.classList.contains('open')) {
+                    closeGalleryModal();
+                }
+            });
+            
+            // Initialize
+            loadGalleryItems();
+            
+            // Fallback sample gallery
+            function loadSampleGallery() {
+                galleryItems = [
+                    {
+                        id: 1,
+                        title: "Offroad Light Setup",
+                        description: "MotoRanger lights installed on a 4x4 vehicle for maximum visibility on trails",
+                        image: "images/gallery/gallery-1.jpg",
+                        type: "image",
+                        category: "installation"
+                    },
+                    {
+                        id: 2,
+                        title: "Night Trail Run",
+                        description: "Testing our lights on a night trail in extreme conditions",
+                        thumbnail: "images/gallery/gallery-2-thumb.jpg",
+                        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                        type: "video",
+                        category: "video"
+                    },
+                    {
+                        id: 3,
+                        title: "Light Bar Installation",
+                        description: "Step-by-step installation guide for our premium light bars",
+                        image: "images/gallery/gallery-3.jpg",
+                        type: "image",
+                        category: "installation"
+                    },
+                    {
+                        id: 4,
+                        title: "Product Showcase",
+                        description: "MotoRanger complete product lineup for 2025",
+                        image: "images/gallery/gallery-4.jpg",
+                        type: "image",
+                        category: "product"
+                    },
+                    {
+                        id: 5,
+                        title: "Customer Installation",
+                        description: "Customer vehicle fitted with our premium lighting solutions",
+                        image: "images/gallery/gallery-5.jpg",
+                        type: "image",
+                        category: "installation"
+                    },
+                    {
+                        id: 6,
+                        title: "Beam Pattern Test",
+                        description: "Testing beam patterns and light output in controlled environment",
+                        image: "images/gallery/gallery-6.jpg",
+                        type: "image",
+                        category: "product"
+                    }
+                ];
+                
+                renderGalleryItems();
+                
+                // Hide preloader
+                setTimeout(() => {
+                    preloader.classList.add('loaded');
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+[
+  {
+    "id": 1,
+    "title": "Offroad Light Setup",
+    "description": "MotoRanger lights installed on a 4x4 vehicle for maximum visibility on trails",
+    "image": "images/gallery/gallery-1.jpg",
+    "type": "image"
+  },
+  {
+    "id": 2,
+    "title": "Night Trail Run",
+    "description": "Testing our lights on a night trail in extreme conditions",
+    "thumbnail": "images/gallery/gallery-2-thumb.jpg",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "type": "video"
+  },
+  {
+    "id": 3,
+    "title": "Light Bar Installation",
+    "description": "Step-by-step installation guide for our premium light bars",
+    "image": "images/gallery/gallery-3.jpg",
+    "type": "image"
+  },
+  {
+    "id": 4,
+    "title": "Product Showcase",
+    "description": "MotoRanger complete product lineup for 2025",
+    "image": "images/gallery/gallery-4.jpg",
+    "type": "image"
+  },
+  {
+    "id": 5,
+    "title": "Customer Installation",
+    "description": "Customer vehicle fitted with our premium lighting solutions",
+    "image": "images/gallery/gallery-5.jpg",
+    "type": "image"
+  },
+  {
+    "id": 6,
+    "title": "Beam Pattern Test",
+    "description": "Testing beam patterns and light output in controlled environment",
+    "image": "images/gallery/gallery-6.jpg",
+    "type": "image"
+  },
+  {
+    "id": 7,
+    "title": "Desert Off-roading",
+    "description": "MotoRanger lights performing in desert conditions",
+    "image": "images/gallery/gallery-7.jpg",
+    "type": "image"
+  },
+  {
+    "id": 8,
+    "title": "Product Comparison",
+    "description": "Comparing MotoRanger lights with competitors",
+    "thumbnail": "images/gallery/gallery-8-thumb.jpg",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "type": "video"
+  }
+]

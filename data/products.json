@@ -1,0 +1,274 @@
+[
+  {
+    "id": 1,
+    "name": "LED Light Bar 52\"",
+    "description": "Super bright LED light bar with 300W output for off-road adventures",
+    "image": "images/products/light-bar.jpg",
+    "featured": true,
+    "categoryId": 1,
+    "specifications": [
+      "300W Power Output",
+      "IP68 Waterproof Rating",
+      "50,000+ Hours Lifespan",
+      "Aluminum Housing",
+      "Multi-Beam Technology",
+      "Operating Voltage: 9-32V DC"
+    ],
+    "price": "₹12,999"
+  },
+  {
+    "id": 2,
+    "name": "Round LED Fog Lights (Pair)",
+    "description": "Waterproof fog lights with universal mounting brackets for all vehicles",
+    "image": "images/products/fog-lights.jpg",
+    "featured": true,
+    "categoryId": 2,
+    "specifications": [
+      "60W Power Output (30W each)",
+      "IP67 Waterproof Rating",
+      "40,000+ Hours Lifespan",
+      "Die-cast Aluminum Housing",
+      "Spot & Flood Combo Beam",
+      "Operating Voltage: 12-24V DC"
+    ],
+    "price": "₹4,999"
+  },
+  {
+    "id": 3,
+    "name": "LED Headlight Upgrade Kit",
+    "description": "High-performance LED headlight upgrade with 200% brightness over stock",
+    "image": "images/products/headlight.jpg",
+    "featured": true,
+    "categoryId": 3,
+    "specifications": [
+      "80W Power Output (40W each)",
+      "6500K Color Temperature",
+      "35,000+ Hours Lifespan",
+      "Built-in Cooling Fan",
+      "CAN-BUS Error Free",
+      "Plug & Play Installation"
+    ],
+    "price": "₹8,499"
+  },
+  {
+    "id": 4,
+    "name": "Work Light 4\"",
+    "description": "Compact work light with 50W output for various applications",
+    "image": "images/products/work-light.jpg",
+    "featured": true,
+    "categoryId": 4,
+    "specifications": [
+      "50W Power Output",
+      "IP69K Waterproof Rating",
+      "45,000+ Hours Lifespan",
+      "120° Flood Beam Pattern",
+      "Shockproof & Dustproof",
+      "Operating Voltage: 10-30V DC"
+    ],
+    "price": "₹2,499"
+  },
+  {
+    "id": 5,
+    "name": "Curved LED Light Bar 42\"",
+    "description": "Curved design for wider light spread and better visibility in off-road conditions",
+    "image": "images/products/light-bar.jpg",
+    "featured": false,
+    "categoryId": 1,
+    "specifications": [
+      "240W Power Output",
+      "IP68 Waterproof Rating",
+      "50,000+ Hours Lifespan",
+      "Curved Design for 180° Coverage",
+      "Combination Beam Pattern",
+      "Operating Voltage: 9-32V DC"
+    ],
+    "price": "₹10,999"
+  },
+  {
+    "id": 6,
+    "name": "Square LED Fog Lights (Pair)",
+    "description": "Square fog lights with rugged housing for extreme weather conditions",
+    "image": "images/products/fog-lights.jpg",
+    "featured": false,
+    "categoryId": 2,
+    "specifications": [
+      "72W Power Output (36W each)",
+      "IP67 Waterproof Rating",
+      "45,000+ Hours Lifespan",
+      "Reinforced Mounting Bracket",
+      "Spot Beam Pattern",
+      "Operating Voltage: 12-24V DC"
+    ],
+    "price": "₹5,499"
+  },
+  {
+    "id": 7,
+    "name": "RGB Headlight Halos",
+    "description": "Customizable RGB halos for a unique look with smartphone control via Bluetooth",
+    "image": "images/products/headlight.jpg",
+    "featured": false,
+    "categoryId": 3,
+    "specifications": [
+      "Bluetooth Control",
+      "Multiple Color Options",
+      "Music Sync Feature",
+      "Smartphone App Compatible",
+      "30,000+ Hours Lifespan",
+      "Easy Installation"
+    ],
+    "price": "₹6,999"
+  },
+  {
+    "id": 8,
+    "name": "Mini Work Light 2\"",
+    "description": "Ultra-compact work light for tight spaces and precision tasks",
+    "image": "images/products/work-light.jpg",
+    "featured": false,
+    "categoryId": 4,
+    "specifications": [
+      "20W Power Output",
+      "IP68 Waterproof Rating",
+      "40,000+ Hours Lifespan",
+      "60° Flood Beam Pattern",
+      "Compact Design",
+      "Operating Voltage: 10-30V DC"
+    ],
+    "price": "₹1,499"
+  },
+  {
+    "id": 9,
+    "name": "Universal Mounting Brackets",
+    "description": "Universal mounting brackets for various light bar applications",
+    "image": "images/products/accessories.jpg",
+    "featured": false,
+    "categoryId": 5,
+    "specifications": [
+      "Heavy-Duty Steel Construction",
+      "Powder Coated Finish",
+      "Adjustable Angle",
+      "Fits Light Bars 20-52\"",
+      "Anti-Corrosion Treatment",
+      "Includes Mounting Hardware"
+    ],
+    "price": "₹1,299"
+  },
+  {
+    "id": 10,
+    "name": "LED Interior Light Kit",
+    "description": "Complete interior lighting kit with multiple color options and remote control",
+    "image": "images/products/interior-lights.jpg",
+    "featured": false,
+    "categoryId": 6,
+    "specifications": [
+      "12W Power Output",
+      "16 Color Options",
+      "Sound Activation Mode",
+      "Wireless Remote Control",
+      "30,000+ Hours Lifespan",
+      "Easy Plug & Play Installation"
+    ],
+    "price": "₹3,499"
+  },
+  {
+    "id": 11,
+    "name": "Slim LED Light Bar 32\"",
+    "description": "Ultra-slim profile light bar for roof mounting with minimal drag",
+    "image": "images/products/light-bar.jpg",
+    "featured": false,
+    "categoryId": 1,
+    "specifications": [
+      "180W Power Output",
+      "IP68 Waterproof Rating",
+      "50,000+ Hours Lifespan",
+      "Ultra-Slim Design",
+      "Spot & Flood Combo Beam",
+      "Operating Voltage: 9-32V DC"
+    ],
+    "price": "₹8,999"
+  },
+  {
+    "id": 12,
+    "name": "Cube LED Fog Lights (Pair)",
+    "description": "Compact cube-shaped fog lights with intense light output",
+    "image": "images/products/fog-lights.jpg",
+    "featured": false,
+    "categoryId": 2,
+    "specifications": [
+      "80W Power Output (40W each)",
+      "IP69K Waterproof Rating",
+      "45,000+ Hours Lifespan",
+      "Compact Cube Design",
+      "60° Flood Beam Pattern",
+      "Operating Voltage: 10-30V DC"
+    ],
+    "price": "₹5,999"
+  },
+  {
+    "id": 13,
+    "name": "LED DRL & Turn Signal Kit",
+    "description": "Daytime running lights with integrated turn signals for modern look",
+    "image": "images/products/headlight.jpg",
+    "featured": false,
+    "categoryId": 3,
+    "specifications": [
+      "Sequential Turn Signal",
+      "White DRL & Amber Turn Signal",
+      "Waterproof Design",
+      "Universal Fitment",
+      "35,000+ Hours Lifespan",
+      "Plug & Play Installation"
+    ],
+    "price": "₹3,999"
+  },
+  {
+    "id": 14,
+    "name": "Magnetic Work Light",
+    "description": "Versatile work light with strong magnetic base for hands-free operation",
+    "image": "images/products/work-light.jpg",
+    "featured": false,
+    "categoryId": 4,
+    "specifications": [
+      "30W Power Output",
+      "IP67 Waterproof Rating",
+      "Strong Magnetic Base",
+      "Rotatable Design",
+      "110° Flood Beam Pattern",
+      "Rechargeable Battery Option"
+    ],
+    "price": "₹2,999"
+  },
+  {
+    "id": 15,
+    "name": "Wiring Harness Kit",
+    "description": "Complete wiring harness kit with relay, switch and fuse for safe installation",
+    "image": "images/products/accessories.jpg",
+    "featured": false,
+    "categoryId": 5,
+    "specifications": [
+      "12 Gauge Wiring",
+      "40A Relay Included",
+      "Waterproof Switch",
+      "Inline Fuse Holder",
+      "Supports up to 300W",
+      "Complete Installation Kit"
+    ],
+    "price": "₹1,499"
+  },
+  {
+    "id": 16,
+    "name": "LED Footwell Lighting Kit",
+    "description": "Ambient footwell lighting kit with smartphone control and music sync",
+    "image": "images/products/interior-lights.jpg",
+    "featured": false,
+    "categoryId": 6,
+    "specifications": [
+      "10W Power Output",
+      "App Control via Bluetooth",
+      "Music Sync Feature",
+      "Voice Control Compatible",
+      "Multiple Lighting Modes",
+      "Easy Installation"
+    ],
+    "price": "₹2,499"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Light Bars",
+    "productCount": 24,
+    "image": "images/categories/light-bars.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Fog Lights",
+    "productCount": 16,
+    "image": "images/categories/fog-lights.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Headlights",
+    "productCount": 12,
+    "image": "images/categories/headlights.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Work Lights",
+    "productCount": 18,
+    "image": "images/categories/work-lights.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Accessories",
+    "productCount": 9,
+    "image": "images/categories/accessories.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Interior Lights",
+    "productCount": 7,
+    "image": "images/categories/interior-lights.jpg"
+  }
+]

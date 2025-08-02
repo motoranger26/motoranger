@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "LED Light Bar 52\"",
+    "description": "Super bright LED light bar with 300W output for off-road adventures",
+    "image": "images/products/light-bar.jpg",
+    "featured": true,
+    "categoryId": 1
+  },
+  {
+    "id": 2,
+    "name": "Round LED Fog Lights",
+    "description": "Waterproof fog lights with universal mounting brackets",
+    "image": "images/products/fog-lights.jpg",
+    "featured": true,
+    "categoryId": 2
+  },
+  {
+    "id": 3,
+    "name": "LED Headlight Upgrade Kit",
+    "description": "High-performance LED headlight upgrade with 200% brightness",
+    "image": "images/products/headlight.jpg",
+    "featured": true,
+    "categoryId": 3
+  },
+  {
+    "id": 4,
+    "name": "Work Light 4\"",
+    "description": "Compact work light with 50W output for various applications",
+    "image": "images/products/work-light.jpg",
+    "featured": true,
+    "categoryId": 4
+  }
+]
