@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Additional styles for gallery page */
         .gallery-section {
             padding: 120px 0 80px;
+            font-family: 'Exo 2', sans-serif;
         }
         
         .gallery-filter {
@@ -21,6 +22,14 @@
             flex-wrap: wrap;
             margin-bottom: 40px;
             gap: 10px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        p, span, button, a {
+            font-family: 'Exo 2', sans-serif;
         }
         
         .filter-btn {
@@ -341,6 +350,15 @@
     <script>
         // Gallery Page Specific JavaScript
         document.addEventListener('DOMContentLoaded', () => {
+            // Apply consistent fonts to all elements
+            document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(function(el) {
+                el.style.fontFamily = "'Orbitron', sans-serif";
+            });
+            
+            document.querySelectorAll('p, span, button, a, li').forEach(function(el) {
+                el.style.fontFamily = "'Exo 2', sans-serif";
+            });
+            
             // DOM Elements
             const preloader = document.querySelector('.preloader');
             const galleryGrid = document.getElementById('gallery-grid');

@@ -6,6 +6,7 @@
     <meta name="description" content="MotoRanger - Premium Automotive Lighting & Accessories. Unleash the Performance with our high-quality products.">
     <title>MotoRanger - Premium Automotive Products</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/slideshow.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,71 +30,155 @@
     </div>
 
     <!-- Header Section -->
-        <header class="header">
+    <header class="header dsn-header">
         <div class="container">
             <div class="header-inner">
-                <a href="#" class="logo">
-                    <img src="images/logo.png" alt="MotoRanger">
-                </a>
-                <div class="nav-menu">
-                    <div class="mobile-menu-close">
-                        <i class="fas fa-times"></i>
+                <div class="logo-wrapper">
+                    <a href="#" class="logo">
+                        <img src="images/logo.png" alt="MotoRanger">
+                        <span class="logo-text">MOTO<span class="highlight">RANGER</span></span>
+                    </a>
+                </div>
+                <div class="menu-wrapper">
+                    <div class="nav-menu">
+                        <div class="mobile-menu-close">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
                     </div>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#categories">Categories</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
                 </div>
                 <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Full Screen Hero Section -->
-    <section class="hero">
-        <div class="hero-bg">
-            <video autoplay muted loop id="heroVideo">
-                <source src="videos/hero-bg-video.mp4" type="video/mp4">
-                <!-- Fallback image if video doesn't load -->
-                <img src="images/hero-bg.jpg" alt="Hero Background">
-            </video>
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content">
-            <div class="container">
-                <div class="hero-text">
-                    <h1 class="glitch-text" data-text="MotoRanger">MotoRanger</h1>
-                    <div class="tagline-container">
-                        <h2 class="tagline">Unleash the Performance</h2>
-                    </div>
-                    <p class="subtext">Premium Automotive Lighting & Accessories</p>
-                    <div class="hero-buttons">
-                        <a href="products.html" class="btn btn-neon">Explore Products</a>
-                        <a href="#featured" class="btn btn-outline">Featured Items</a>
+    <!-- Full Screen Hero Section with BlackDSN Slideshow -->
+    <section class="hero dsn-slider" id="home">
+        <div class="dsn-slider-content">
+            <!-- Slide 1 -->
+            <div class="slide-item active">
+                <div class="slide-bg">
+                    <div class="image-bg cover-bg" data-image-src="images/hero-slide-1.jpg"></div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="content-inner">
+                            <div class="slide-title">
+                                <h1 class="title-text">PREMIER LIGHTING</h1>
+                            </div>
+                            <div class="slide-meta">
+                                <div class="slide-meta-item">
+                                    <span class="sm-title">Category</span>
+                                    <span class="sm-content">LED Light Bars</span>
+                                </div>
+                            </div>
+                            <div class="slide-description">
+                                <p>Experience high-intensity LED lighting solutions for your vehicle. Our premium light bars provide exceptional visibility in any environment.</p>
+                            </div>
+                            <div class="slide-link">
+                                <span class="dsn-link">VIEW PRODUCTS <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="images/logoname.png" alt="MotoRanger Logo" class="hero-logo">
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="slide-item">
+                <div class="slide-bg">
+                    <div class="image-bg cover-bg" data-image-src="images/hero-slide-2.jpg"></div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="content-inner">
+                            <div class="slide-title">
+                                <h1 class="title-text">PERFORMANCE UPGRADES</h1>
+                            </div>
+                            <div class="slide-meta">
+                                <div class="slide-meta-item">
+                                    <span class="sm-title">Category</span>
+                                    <span class="sm-content">HID & LED Conversion Kits</span>
+                                </div>
+                            </div>
+                            <div class="slide-description">
+                                <p>Transform your vehicle's lighting with our cutting-edge conversion kits. Brighter, whiter light for enhanced safety and style.</p>
+                            </div>
+                            <div class="slide-link">
+                                <span class="dsn-link">VIEW PRODUCTS <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="slide-item">
+                <div class="slide-bg">
+                    <div class="image-bg cover-bg" data-image-src="images/hero-slide-3.jpg"></div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="slide-content">
+                    <div class="container">
+                        <div class="content-inner">
+                            <div class="slide-title">
+                                <h1 class="title-text">PREMIUM ACCESSORIES</h1>
+                            </div>
+                            <div class="slide-meta">
+                                <div class="slide-meta-item">
+                                    <span class="sm-title">Category</span>
+                                    <span class="sm-content">Automotive Accessories</span>
+                                </div>
+                            </div>
+                            <div class="slide-description">
+                                <p>Complete your vehicle setup with our premium accessories. From mounting brackets to wiring harnesses, we have everything you need.</p>
+                            </div>
+                            <div class="slide-link">
+                                <span class="dsn-link">VIEW PRODUCTS <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-down">
-            <span class="chevron"></span>
-            <span class="chevron"></span>
-            <span class="chevron"></span>
+        
+        <!-- Slider Navigation -->
+        <div class="dsn-slider-navigation">
+            <div class="slider-nav-count">
+                <span class="current">01</span>
+                <span class="total">03</span>
+            </div>
+        </div>
+        
+        <!-- Slider Dot Navigation (BlackDSN Style) -->
+        <div class="slider-dots">
+            <div class="dot-container">
+                <div class="dot active" data-slide="0"><span></span></div>
+                <div class="dot" data-slide="1"><span></span></div>
+                <div class="dot" data-slide="2"><span></span></div>
+            </div>
+        </div>
+        
+        <!-- Slider Progress Bar -->
+        <div class="slider-progress-bar">
+            <span class="progress-line"></span>
         </div>
     </section>
 
-
-
     <!-- Featured Products Section -->
-    <section id="featured" class="featured-products">
+    <section id="products" class="featured-products">
         <div class="section-bg-animation"></div>
         <div class="container">
             <div class="section-header">
@@ -131,7 +216,7 @@
     </section>
 
     <!-- Categories Section -->
-    <section class="categories">
+    <section id="categories" class="categories">
         <div class="container">
             <div class="section-header">
                 <h2>Product Categories</h2>
@@ -144,8 +229,7 @@
     </section>
 
     <!-- Features Section -->
-        <!-- Features Section -->
-    <section class="features">
+    <section id="features" class="features">
         <div class="container">
             <div class="section-header">
                 <h2>Why Choose MotoRanger</h2>
@@ -223,14 +307,38 @@
     <!-- Gallery Preview Section -->
 
     <!-- Gallery Preview Section -->
-    <section class="gallery-preview">
+        <!-- Gallery Preview Section -->
+    <section id="gallery" class="gallery-preview">
         <div class="container">
             <div class="section-header">
-                <h2>Gallery</h2>
-                <p>See our products in action</p>
+                <h2>Our Gallery</h2>
+                <p>See our products in real-world applications</p>
             </div>
-            <div class="gallery-grid" id="gallery-container">
-                <!-- Gallery items will be loaded from JSON -->
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-1.jpg" alt="Gallery Image 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-2.jpg" alt="Gallery Image 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-3.jpg" alt="Gallery Image 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery/gallery-4.jpg" alt="Gallery Image 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
             </div>
             <div class="view-all">
                 <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
@@ -253,12 +361,13 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="footer">
+        <!-- Footer Section -->
+    <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-logo">
-                    <img src="images/logoname.png" alt="MotoRanger Logo">
-                    <p>Unleash the Performance</p>
+                    <img src="images/logo.png" alt="MotoRanger Logo">
+                    <p>Illuminating Your Journey</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
@@ -299,6 +408,7 @@
 
     <!-- JavaScript -->
     <script src="js/app.js"></script>
+    <script src="js/slideshow.js"></script>
     <script>
         // Mobile Menu Functionality
         document.addEventListener('DOMContentLoaded', function() {

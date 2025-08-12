@@ -44,6 +44,7 @@ function initEventListeners() {
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', () => {
             navMenu.classList.add('active');
+            mobileMenuToggle.classList.add('active');
         });
     }
 
@@ -51,6 +52,7 @@ function initEventListeners() {
     if (mobileMenuClose) {
         mobileMenuClose.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
         });
     }
 
@@ -59,6 +61,7 @@ function initEventListeners() {
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
         });
     });
 
@@ -76,6 +79,7 @@ function initEventListeners() {
             !navMenu.contains(e.target) && 
             !mobileMenuToggle.contains(e.target)) {
             navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
         }
     });
 }
