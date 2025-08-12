@@ -11,6 +11,27 @@ This website is built with modern HTML, CSS, and JavaScript to showcase MotoRang
 - Visually appealing with modern design elements
 - SEO-friendly and accessible
 
+## Design Versions
+
+The website comes with multiple design options to choose from:
+
+1. **Main Design** (`index.html`)
+   - Clean and professional design with a focus on showcasing products
+   - Red and black color scheme aligned with brand identity
+   - Mobile-first responsive layout
+
+2. **Alternative Design 2** (`index-alt2.html`)
+   - Futuristic neon theme with modern visual effects
+   - Enhanced animations and interactive elements
+   - Fully responsive with optimized mobile experience
+
+3. **BlackDSN Inspired Design** (`index-blackdsn.html`)
+   - Elegant, minimal design inspired by BlackDSN template
+   - Advanced animations and transitions
+   - Custom cursor and preloader
+   - Grid-based layout for modern aesthetic
+   - Bold typography and improved visual hierarchy
+
 ## Features
 
 - **Mobile-First Design**: Optimized for all screen sizes with a focus on mobile users
@@ -25,15 +46,20 @@ This website is built with modern HTML, CSS, and JavaScript to showcase MotoRang
 
 ```
 motoranger/
-├── index.html             # Homepage
+├── index.html             # Main design homepage
+├── index-alt2.html        # Alternative design 2 homepage
+├── index-blackdsn.html    # BlackDSN inspired homepage
 ├── products.html          # Products catalog page
 ├── gallery.html           # Gallery page
 ├── about.html             # About us page
 ├── contact.html           # Contact page
 ├── css/
-│   └── styles.css         # Main stylesheet
+│   ├── styles.css         # Main design stylesheet
+│   ├── styles-alt2.css    # Alternative design 2 stylesheet
+│   └── styles-blackdsn.css # BlackDSN inspired stylesheet
 ├── js/
-│   └── app.js             # Main JavaScript file
+│   ├── app.js             # Main JavaScript file
+│   └── app-blackdsn.js    # Extended JS for BlackDSN design
 ├── data/
 │   ├── products.json      # Products data
 │   ├── featured-products.json # Featured products data
@@ -66,6 +92,15 @@ motoranger/
 2. Follow the format to add new gallery items
 3. Add images to `images/gallery/`
 
+## Choosing a Design
+
+To switch between designs, simply use the corresponding HTML file:
+- For the main design: `index.html`
+- For the alternative design 2: `index-alt2.html`
+- For the BlackDSN inspired design: `index-blackdsn.html`
+
+Each design has its own CSS file and potentially additional JavaScript functionality.
+
 ## Hosting
 
 This website can be hosted on GitHub Pages, Netlify, or any other static hosting service. The site is fully static and doesn't require a backend server.
@@ -89,4 +124,4 @@ To work on this project locally:
 
 - Font Awesome for icons
 - Google Fonts for typography
-- Inspiration from modern automotive websites
+- Inspiration from modern automotive websites and BlackDSN template

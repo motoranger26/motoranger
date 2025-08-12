@@ -1,6 +1,7 @@
 // DOM Elements
 const header = document.querySelector('.header');
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const mobileMenuClose = document.querySelector('.mobile-menu-close');
 const navMenu = document.querySelector('.nav-menu');
 const scrollDownBtn = document.querySelector('.scroll-down');
 const featuredProductsContainer = document.getElementById('featured-products-container');
@@ -40,7 +41,26 @@ function initEventListeners() {
     });
 
     // Mobile menu toggle
-    mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.add('active');
+        });
+    }
+
+    // Mobile menu close button
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    }
+
+    // Close mobile menu when clicking a menu item
+    const menuLinks = document.querySelectorAll('.nav-menu ul li a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
 
     // Scroll down button
     if (scrollDownBtn) {
@@ -50,15 +70,17 @@ function initEventListeners() {
         });
     }
 
-    // Close mobile menu when clicking outside
+        // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (navMenu.classList.contains('active') && 
             !navMenu.contains(e.target) && 
             !mobileMenuToggle.contains(e.target)) {
-            toggleMobileMenu();
+            navMenu.classList.remove('active');
         }
     });
 }
+
+// Load featured products from JSON
 
 // Toggle mobile menu
 function toggleMobileMenu() {

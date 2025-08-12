@@ -9,27 +9,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <a href="mailto:info@motoranger.com"><i class="fas fa-envelope"></i> info@motoranger.com</a>
+                <a href="tel:+911234567890"><i class="fas fa-phone"></i> +91 1234567890</a>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header Section -->
-    <header class="header">
+        <header class="header">
         <div class="container">
             <div class="header-inner">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="images/logo.png" alt="MotoRanger Logo">
-                    </a>
-                </div>
-                <nav class="nav-menu">
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="MotoRanger">
+                </a>
+                <div class="nav-menu">
+                    <div class="mobile-menu-close">
+                        <i class="fas fa-times"></i>
+                    </div>
                     <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="products.html">Products</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
-                </nav>
+                </div>
                 <div class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -37,27 +55,46 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Full Screen Hero Section -->
     <section class="hero">
+        <div class="hero-bg">
+            <video autoplay muted loop id="heroVideo">
+                <source src="videos/hero-bg-video.mp4" type="video/mp4">
+                <!-- Fallback image if video doesn't load -->
+                <img src="images/hero-bg.jpg" alt="Hero Background">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
-            <div class="hero-logo">
-                <img src="images/logoname.png" alt="MotoRanger Logo" class="hero-logo-img">
-                <h2 class="hero-tagline animate-text-reveal">Unleash the Performance</h2>
-            </div>
-            <p class="hero-subtext animate-fade-up">Premium Automotive Lighting & Accessories</p>
-            <div class="hero-buttons animate-fade-up-delay">
-                <a href="products.html" class="btn btn-primary">Explore Products</a>
-                <a href="#featured" class="btn btn-secondary">Featured Items</a>
+            <div class="container">
+                <div class="hero-text">
+                    <h1 class="glitch-text" data-text="MotoRanger">MotoRanger</h1>
+                    <div class="tagline-container">
+                        <h2 class="tagline">Unleash the Performance</h2>
+                    </div>
+                    <p class="subtext">Premium Automotive Lighting & Accessories</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="btn btn-neon">Explore Products</a>
+                        <a href="#featured" class="btn btn-outline">Featured Items</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/logoname.png" alt="MotoRanger Logo" class="hero-logo">
+                </div>
             </div>
         </div>
-        <div class="hero-overlay"></div>
-        <div class="scroll-down animate-fade-up">
-            <i class="fas fa-chevron-down"></i>
+        <div class="scroll-down">
+            <span class="chevron"></span>
+            <span class="chevron"></span>
+            <span class="chevron"></span>
         </div>
     </section>
 
+
+
     <!-- Featured Products Section -->
     <section id="featured" class="featured-products">
+        <div class="section-bg-animation"></div>
         <div class="container">
             <div class="section-header">
                 <h2>Featured Products</h2>
@@ -68,6 +105,27 @@
             </div>
             <div class="view-all">
                 <a href="products.html" class="btn btn-outline">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase Section -->
+    <section class="video-showcase">
+        <div class="container">
+            <div class="video-content">
+                <div class="video-text">
+                    <h2>Engineered for Excellence</h2>
+                    <p>Our automotive lighting solutions are designed to provide exceptional performance in any condition. Whether you're driving on highways, off-road trails, or city streets, MotoRanger lights deliver unmatched brightness and reliability.</p>
+                    <a href="about.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="video-wrapper">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                        <img src="images/video-thumb.jpg" alt="Video Thumbnail">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -85,8 +143,9 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
+    <!-- Features Section -->
+        <!-- Features Section -->
+    <section class="features">
         <div class="container">
             <div class="section-header">
                 <h2>Why Choose MotoRanger</h2>
@@ -124,6 +183,44 @@
             </div>
         </div>
     </section>
+    
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="stat-count">200+</div>
+                    <div class="stat-title">Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="stat-count">10k+</div>
+                    <div class="stat-title">Deliveries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="stat-count">5k+</div>
+                    <div class="stat-title">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="stat-count">20+</div>
+                    <div class="stat-title">Cities</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Preview Section -->
 
     <!-- Gallery Preview Section -->
     <section class="gallery-preview">
@@ -143,11 +240,12 @@
 
     <!-- Call To Action Section -->
     <section class="cta">
+        <div class="cta-bg-overlay"></div>
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to enhance your vehicle?</h2>
                 <p>Get in touch with us to learn more about our products or make a purchase</p>
-                <a href="https://wa.me/1234567890" class="btn whatsapp-btn">
+                <a href="https://wa.me/1234567890" class="btn btn-whatsapp-chat">
                     <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                 </a>
             </div>
@@ -157,9 +255,9 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-logo">
-                    <img src="images/logoname.png" alt="MotoRanger Logo" class="footer-logo-img">
+                    <img src="images/logoname.png" alt="MotoRanger Logo">
                     <p>Unleash the Performance</p>
                 </div>
                 <div class="footer-links">
@@ -178,14 +276,13 @@
                     <p><i class="fas fa-phone"></i> +91 1234567890</p>
                     <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
                 </div>
-                <div class="footer-social">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-sm btn-neon">Subscribe</button>
+                    </form>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -202,5 +299,68 @@
 
     <!-- JavaScript -->
     <script src="js/app.js"></script>
+    <script>
+        // Mobile Menu Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
+            const navMenu = document.querySelector('.nav-menu');
+            const menuLinks = document.querySelectorAll('.nav-menu ul li a');
+
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    navMenu.classList.add('active');
+                });
+            }
+
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            }
+
+            // Close menu when clicking on links
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Video modal functionality
+            const videoThumbnail = document.querySelector('.video-thumbnail');
+            if (videoThumbnail) {
+                videoThumbnail.addEventListener('click', function() {
+                    const videoUrl = this.getAttribute('data-video-url');
+                    
+                    const modal = document.createElement('div');
+                    modal.className = 'video-modal';
+                    
+                    modal.innerHTML = `
+                        <div class="video-modal-content">
+                            <span class="close-modal">&times;</span>
+                            <div class="video-container">
+                                <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    
+                    // Close modal
+                    const closeBtn = modal.querySelector('.close-modal');
+                    closeBtn.addEventListener('click', function() {
+                        document.body.removeChild(modal);
+                    });
+                    
+                    // Close modal when clicking outside
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal) {
+                            document.body.removeChild(modal);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
