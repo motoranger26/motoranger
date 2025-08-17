@@ -4,7 +4,7 @@
     "name": "LED 120W",
     "description": "High-performance 120W LED light for superior brightness and durability",
     "image": "images/products/light-bar.jpg",
-    "featured": true,
+    "featured": false,
     "categoryId": 1,
     "specifications": [
       "120W Power Output",
