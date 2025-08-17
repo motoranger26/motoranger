@@ -158,7 +158,7 @@ function createProductCard(product) {
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <div class="product-footer">
-                <a href="product-details.html?id=${product.id}" class="btn btn-outline">View Details</a>
+                <a href="product.html?id=${product.id}" class="btn btn-outline">View Details</a>
             </div>
         </div>
     `;
