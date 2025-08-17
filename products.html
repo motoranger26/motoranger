@@ -274,11 +274,34 @@
             let currentPage = 1;
             const productsPerPage = 8;
             
+            // Check for category parameter in URL
+            function checkUrlParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const categoryParam = urlParams.get('category');
+                
+                if (categoryParam) {
+                    // Set initial category from URL parameter
+                    currentCategory = categoryParam;
+                }
+            }
+            
+            // Initialize with URL parameters
+            checkUrlParams();
+            
             // Fetch all products
             async function fetchAllProducts() {
                 try {
+                    console.log("Fetching products from products.json...");
                     const response = await fetch('data/products.json');
-                    allProducts = await response.json();
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    console.log("Loaded products:", data.length, "products");
+                    
+                    allProducts = data;
                     filteredProducts = [...allProducts];
                     
                     // Initial render
@@ -286,8 +309,11 @@
                     setupPagination();
                 } catch (error) {
                     console.error('Error loading products:', error);
-                    // Load sample products if JSON fails
-                    loadSampleProducts();
+                    noResultsMessage.style.display = 'block';
+                    noResultsMessage.innerHTML = `
+                        <h3>Error loading products</h3>
+                        <p>There was a problem loading the product data. Please try refreshing the page.</p>
+                    `;
                 }
             }
             
@@ -296,6 +322,12 @@
                 try {
                     const response = await fetch('data/categories.json');
                     const categories = await response.json();
+                    
+                    // Add event listener for the "All Products" button
+                    const allProductsBtn = document.querySelector('.filter-btn[data-category="all"]');
+                    allProductsBtn.addEventListener('click', () => {
+                        filterByCategory('all');
+                    });
                     
                     // Render category filter buttons
                     categories.forEach(category => {
@@ -331,6 +363,29 @@
                 
                 // Apply filters
                 applyFilters();
+            }
+            
+            // Apply initial category filter after categories and products are loaded
+            function applyInitialCategoryFilter() {
+                // Apply stored category filter from URL parameter
+                if (currentCategory !== 'all') {
+                    const filterButtons = categoryFilter.querySelectorAll('.filter-btn');
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.getAttribute('data-category') == currentCategory) {
+                            btn.classList.add('active');
+                        }
+                    });
+                    
+                    // Filter products by the selected category
+                    filteredProducts = allProducts.filter(product => 
+                        product.categoryId == currentCategory
+                    );
+                    
+                    // Update display
+                    renderProducts();
+                    setupPagination();
+                }
             }
             
             // Filter products by search term
@@ -373,21 +428,25 @@
             
             // Render products with pagination
             function renderProducts() {
+                console.log("Rendering products. Total filtered products:", filteredProducts.length);
                 productsContainer.innerHTML = '';
                 
                 // Calculate pagination
                 const startIndex = (currentPage - 1) * productsPerPage;
                 const endIndex = startIndex + productsPerPage;
                 const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+                console.log("Products on current page:", paginatedProducts.length);
                 
                 // Show/hide no results message
                 if (filteredProducts.length === 0) {
+                    console.log("No products to display");
                     noResultsMessage.style.display = 'block';
                 } else {
                     noResultsMessage.style.display = 'none';
                     
                     // Render paginated products
                     paginatedProducts.forEach(product => {
+                        console.log("Creating card for product:", product.name);
                         const productCard = createProductCard(product);
                         productsContainer.appendChild(productCard);
                     });
@@ -453,86 +512,30 @@
             
             // Initialize
             fetchAllProducts();
-            fetchCategories();
+            fetchCategories().then(() => {
+                // Apply initial category filter after categories are loaded
+                applyInitialCategoryFilter();
+            });
             
-            // Fallback sample products
-            function loadSampleProducts() {
-                allProducts = [
-                    {
-                        id: 1,
-                        name: "LED Light Bar 52\"",
-                        description: "Super bright LED light bar with 300W output for off-road adventures",
-                        image: "images/products/light-bar.jpg",
-                        categoryId: 1
-                    },
-                    {
-                        id: 2,
-                        name: "Round LED Fog Lights",
-                        description: "Waterproof fog lights with universal mounting brackets",
-                        image: "images/products/fog-lights.jpg",
-                        categoryId: 2
-                    },
-                    {
-                        id: 3,
-                        name: "LED Headlight Upgrade Kit",
-                        description: "High-performance LED headlight upgrade with 200% brightness",
-                        image: "images/products/headlight.jpg",
-                        categoryId: 3
-                    },
-                    {
-                        id: 4,
-                        name: "Work Light 4\"",
-                        description: "Compact work light with 50W output for various applications",
-                        image: "images/products/work-light.jpg",
-                        categoryId: 4
-                    },
-                    {
-                        id: 5,
-                        name: "Curved LED Light Bar 42\"",
-                        description: "Curved design for wider light spread and better visibility",
-                        image: "images/products/light-bar.jpg",
-                        categoryId: 1
-                    },
-                    {
-                        id: 6,
-                        name: "Square LED Fog Lights",
-                        description: "Square fog lights with rugged housing for extreme conditions",
-                        image: "images/products/fog-lights.jpg",
-                        categoryId: 2
-                    },
-                    {
-                        id: 7,
-                        name: "RGB Headlight Halos",
-                        description: "Customizable RGB halos for a unique look with smartphone control",
-                        image: "images/products/headlight.jpg",
-                        categoryId: 3
-                    },
-                    {
-                        id: 8,
-                        name: "Mini Work Light 2\"",
-                        description: "Ultra-compact work light for tight spaces and precision tasks",
-                        image: "images/products/work-light.jpg",
-                        categoryId: 4
-                    },
-                    {
-                        id: 9,
-                        name: "Mounting Brackets",
-                        description: "Universal mounting brackets for various light bar applications",
-                        image: "images/products/accessories.jpg",
-                        categoryId: 5
-                    },
-                    {
-                        id: 10,
-                        name: "LED Interior Light Kit",
-                        description: "Complete interior lighting kit with multiple color options",
-                        image: "images/products/interior-lights.jpg",
-                        categoryId: 6
-                    }
-                ];
+            // Create product card
+            function createProductCard(product) {
+                const card = document.createElement('div');
+                card.className = 'product-card';
                 
-                filteredProducts = [...allProducts];
-                renderProducts();
-                setupPagination();
+                card.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="product-footer">
+                            <a href="product-details.html?id=${product.id}" class="btn btn-outline">View Details</a>
+                        </div>
+                    </div>
+                `;
+                
+                return card;
             }
         });
     </script>

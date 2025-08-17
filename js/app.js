@@ -10,7 +10,7 @@ const galleryContainer = document.getElementById('gallery-container');
 
 // Data URLs - JSON files for dynamic content
 const DATA_URLS = {
-    featuredProducts: 'data/featured-products.json',
+    products: 'data/products.json',
     categories: 'data/categories.json',
     gallery: 'data/gallery.json'
 };
@@ -120,21 +120,28 @@ function toggleMobileMenu() {
 // Load featured products from JSON
 async function loadFeaturedProducts() {
     try {
-        const response = await fetch(DATA_URLS.featuredProducts);
-        const data = await response.json();
+        const response = await fetch(DATA_URLS.products);
+        const allProducts = await response.json();
+        
+        // Filter only featured products
+        const featuredProducts = allProducts.filter(product => product.featured === true);
+        
+        // Limit to 8 products for the homepage
+        const limitedFeaturedProducts = featuredProducts.slice(0, 8);
         
         if (featuredProductsContainer) {
             featuredProductsContainer.innerHTML = '';
             
-            data.forEach(product => {
+            limitedFeaturedProducts.forEach(product => {
                 const productCard = createProductCard(product);
                 featuredProductsContainer.appendChild(productCard);
             });
         }
     } catch (error) {
         console.error('Error loading featured products:', error);
-        // Fallback with sample data if JSON fails to load
-        loadSampleFeaturedProducts();
+        if (featuredProductsContainer) {
+            featuredProductsContainer.innerHTML = '<p class="error-message">Error loading products. Please refresh the page.</p>';
+        }
     }
 }
 
@@ -162,26 +169,43 @@ function createProductCard(product) {
 // Load categories from JSON
 async function loadCategories() {
     try {
-        const response = await fetch(DATA_URLS.categories);
-        const data = await response.json();
+        // First load products to calculate product counts
+        const productsResponse = await fetch(DATA_URLS.products);
+        const productsData = await productsResponse.json();
+        
+        // Calculate product count for each category
+        const productCounts = {};
+        productsData.forEach(product => {
+            if (!productCounts[product.categoryId]) {
+                productCounts[product.categoryId] = 0;
+            }
+            productCounts[product.categoryId]++;
+        });
+        
+        // Now load categories
+        const categoriesResponse = await fetch(DATA_URLS.categories);
+        const categoriesData = await categoriesResponse.json();
         
         if (categoriesContainer) {
             categoriesContainer.innerHTML = '';
             
-            data.forEach(category => {
-                const categoryCard = createCategoryCard(category);
+            categoriesData.forEach(category => {
+                // Add product count to each category
+                const count = productCounts[category.id] || 0;
+                const categoryCard = createCategoryCard(category, count);
                 categoriesContainer.appendChild(categoryCard);
             });
         }
     } catch (error) {
         console.error('Error loading categories:', error);
-        // Fallback with sample data if JSON fails to load
-        loadSampleCategories();
+        if (categoriesContainer) {
+            categoriesContainer.innerHTML = '<p class="error-message">Error loading categories. Please refresh the page.</p>';
+        }
     }
 }
 
 // Create category card element
-function createCategoryCard(category) {
+function createCategoryCard(category, productCount) {
     const card = document.createElement('div');
     card.className = 'category-card';
     
@@ -192,7 +216,7 @@ function createCategoryCard(category) {
         <div class="category-overlay">
             <div class="category-info">
                 <h3>${category.name}</h3>
-                <p>${category.productCount} Products</p>
+                <p>${productCount} Products</p>
             </div>
         </div>
     `;
@@ -223,8 +247,9 @@ async function loadGallery() {
         }
     } catch (error) {
         console.error('Error loading gallery:', error);
-        // Fallback with sample data if JSON fails to load
-        loadSampleGallery();
+        if (galleryContainer) {
+            galleryContainer.innerHTML = '<p class="error-message">Error loading gallery. Please refresh the page.</p>';
+        }
     }
 }
 
@@ -381,138 +406,4 @@ function initScrollAnimations() {
             }
         });
     });
-}
-
-// Fallback functions if JSON fails to load
-function loadSampleFeaturedProducts() {
-    if (featuredProductsContainer) {
-        const sampleProducts = [
-            {
-                id: 1,
-                name: "LED Light Bar 52\"",
-                description: "Super bright LED light bar for off-road vehicles",
-                image: "images/products/light-bar.jpg"
-            },
-            {
-                id: 2,
-                name: "Fog Lights Kit",
-                description: "Waterproof fog lights with universal mounting",
-                image: "images/products/fog-lights.jpg"
-            },
-            {
-                id: 3,
-                name: "Headlight Upgrade Kit",
-                description: "High-performance LED headlight upgrade",
-                image: "images/products/headlight.jpg"
-            },
-            {
-                id: 4,
-                name: "Work Light 4\"",
-                description: "Compact work light for various applications",
-                image: "images/products/work-light.jpg"
-            }
-        ];
-        
-        featuredProductsContainer.innerHTML = '';
-        
-        sampleProducts.forEach(product => {
-            const productCard = createProductCard(product);
-            featuredProductsContainer.appendChild(productCard);
-        });
-    }
-}
-
-function loadSampleCategories() {
-    if (categoriesContainer) {
-        const sampleCategories = [
-            {
-                id: 1,
-                name: "Light Bars",
-                productCount: 24,
-                image: "images/categories/light-bars.jpg"
-            },
-            {
-                id: 2,
-                name: "Fog Lights",
-                productCount: 16,
-                image: "images/categories/fog-lights.jpg"
-            },
-            {
-                id: 3,
-                name: "Headlights",
-                productCount: 12,
-                image: "images/categories/headlights.jpg"
-            },
-            {
-                id: 4,
-                name: "Work Lights",
-                productCount: 18,
-                image: "images/categories/work-lights.jpg"
-            }
-        ];
-        
-        categoriesContainer.innerHTML = '';
-        
-        sampleCategories.forEach(category => {
-            const categoryCard = createCategoryCard(category);
-            categoriesContainer.appendChild(categoryCard);
-        });
-    }
-}
-
-function loadSampleGallery() {
-    if (galleryContainer) {
-        const sampleGallery = [
-            {
-                id: 1,
-                title: "Offroad Light Setup",
-                description: "MotoRanger lights on a 4x4 vehicle",
-                image: "images/gallery/gallery-1.jpg",
-                type: "image"
-            },
-            {
-                id: 2,
-                title: "Night Trail Run",
-                description: "Testing our lights on a night trail",
-                thumbnail: "images/gallery/gallery-2-thumb.jpg",
-                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                type: "video"
-            },
-            {
-                id: 3,
-                title: "Light Bar Installation",
-                description: "Step-by-step installation guide",
-                image: "images/gallery/gallery-3.jpg",
-                type: "image"
-            },
-            {
-                id: 4,
-                title: "Product Showcase",
-                description: "MotoRanger product lineup",
-                image: "images/gallery/gallery-4.jpg",
-                type: "image"
-            },
-            {
-                id: 5,
-                title: "Customer Installation",
-                description: "Customer vehicle with our lights",
-                image: "images/gallery/gallery-5.jpg",
-                type: "image"
-            },
-            {
-                id: 6,
-                title: "Beam Pattern Test",
-                description: "Testing beam patterns at night",
-                image: "images/gallery/gallery-6.jpg",
-                type: "image"
-            }
-        ];
-        
-        galleryContainer.innerHTML = '';
-        
-        sampleGallery.slice(0, 6).forEach(item => {
-            const galleryItem = createGalleryItem(item);
-            galleryContainer.appendChild(galleryItem);
-        });
-    }
 }

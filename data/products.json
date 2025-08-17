@@ -1,274 +1,325 @@
 [
   {
     "id": 1,
-    "name": "LED Light Bar 52\"",
-    "description": "Super bright LED light bar with 300W output for off-road adventures",
+    "name": "LED 120W",
+    "description": "High-performance 120W LED light for superior brightness and durability",
     "image": "images/products/light-bar.jpg",
     "featured": true,
     "categoryId": 1,
     "specifications": [
-      "300W Power Output",
+      "120W Power Output",
       "IP68 Waterproof Rating",
       "50,000+ Hours Lifespan",
       "Aluminum Housing",
       "Multi-Beam Technology",
       "Operating Voltage: 9-32V DC"
     ],
-    "price": "₹12,999"
+    "price": "₹9,999"
   },
   {
     "id": 2,
-    "name": "Round LED Fog Lights (Pair)",
-    "description": "Waterproof fog lights with universal mounting brackets for all vehicles",
+    "name": "LED 165W",
+    "description": "Powerful 165W LED lighting solution for maximum visibility in all conditions",
     "image": "images/products/fog-lights.jpg",
     "featured": true,
-    "categoryId": 2,
+    "categoryId": 1,
     "specifications": [
-      "60W Power Output (30W each)",
+      "165W Power Output",
       "IP67 Waterproof Rating",
       "40,000+ Hours Lifespan",
       "Die-cast Aluminum Housing",
       "Spot & Flood Combo Beam",
       "Operating Voltage: 12-24V DC"
     ],
-    "price": "₹4,999"
+    "price": "₹12,499"
   },
   {
     "id": 3,
-    "name": "LED Headlight Upgrade Kit",
-    "description": "High-performance LED headlight upgrade with 200% brightness over stock",
+    "name": "LED 180W",
+    "description": "Professional-grade 180W LED light with exceptional range and brightness",
     "image": "images/products/headlight.jpg",
-    "featured": true,
-    "categoryId": 3,
+    "featured": false,
+    "categoryId": 1,
     "specifications": [
-      "80W Power Output (40W each)",
+      "180W Power Output",
       "6500K Color Temperature",
       "35,000+ Hours Lifespan",
-      "Built-in Cooling Fan",
+      "Built-in Cooling System",
       "CAN-BUS Error Free",
-      "Plug & Play Installation"
+      "Advanced Heat Dissipation"
     ],
-    "price": "₹8,499"
+    "price": "₹13,999"
   },
   {
     "id": 4,
-    "name": "Work Light 4\"",
-    "description": "Compact work light with 50W output for various applications",
+    "name": "LED 250W",
+    "description": "Ultimate 250W LED lighting solution for extreme off-road applications",
     "image": "images/products/work-light.jpg",
-    "featured": true,
-    "categoryId": 4,
+    "featured": false,
+    "categoryId": 1,
     "specifications": [
-      "50W Power Output",
+      "250W Power Output",
       "IP69K Waterproof Rating",
       "45,000+ Hours Lifespan",
       "120° Flood Beam Pattern",
       "Shockproof & Dustproof",
       "Operating Voltage: 10-30V DC"
     ],
-    "price": "₹2,499"
+    "price": "₹17,499"
   },
   {
     "id": 5,
-    "name": "Curved LED Light Bar 42\"",
-    "description": "Curved design for wider light spread and better visibility in off-road conditions",
+    "name": "D-SERIES LED",
+    "description": "Premium D-Series LED lights with specialized optics for optimized beam pattern",
     "image": "images/products/light-bar.jpg",
     "featured": false,
     "categoryId": 1,
     "specifications": [
-      "240W Power Output",
+      "Multiple Power Options",
       "IP68 Waterproof Rating",
       "50,000+ Hours Lifespan",
-      "Curved Design for 180° Coverage",
+      "D-Series Exclusive Design",
       "Combination Beam Pattern",
       "Operating Voltage: 9-32V DC"
     ],
-    "price": "₹10,999"
+    "price": "₹14,999"
   },
   {
     "id": 6,
-    "name": "Square LED Fog Lights (Pair)",
-    "description": "Square fog lights with rugged housing for extreme weather conditions",
+    "name": "MONOFOCAL FOGLIGHT PROJECTOR 3-INCH",
+    "description": "3-inch monofocal foglight projector with sharp cutoff for improved visibility without glare",
     "image": "images/products/fog-lights.jpg",
     "featured": false,
     "categoryId": 2,
     "specifications": [
-      "72W Power Output (36W each)",
-      "IP67 Waterproof Rating",
-      "45,000+ Hours Lifespan",
+      "3-inch Lens Diameter",
+      "Monofocal Design",
+      "Sharp Beam Cutoff",
       "Reinforced Mounting Bracket",
-      "Spot Beam Pattern",
-      "Operating Voltage: 12-24V DC"
+      "Anti-Glare Technology",
+      "High-Grade Glass Lens"
     ],
-    "price": "₹5,499"
+    "price": "₹6,499"
   },
   {
     "id": 7,
-    "name": "RGB Headlight Halos",
-    "description": "Customizable RGB halos for a unique look with smartphone control via Bluetooth",
+    "name": "BIFOCAL FOGLIGHT PROJECTOR 2-INCH",
+    "description": "Compact 2-inch bifocal foglight projector for dual-pattern illumination",
     "image": "images/products/headlight.jpg",
-    "featured": false,
-    "categoryId": 3,
-    "specifications": [
-      "Bluetooth Control",
-      "Multiple Color Options",
-      "Music Sync Feature",
-      "Smartphone App Compatible",
-      "30,000+ Hours Lifespan",
-      "Easy Installation"
-    ],
-    "price": "₹6,999"
-  },
-  {
-    "id": 8,
-    "name": "Mini Work Light 2\"",
-    "description": "Ultra-compact work light for tight spaces and precision tasks",
-    "image": "images/products/work-light.jpg",
-    "featured": false,
-    "categoryId": 4,
-    "specifications": [
-      "20W Power Output",
-      "IP68 Waterproof Rating",
-      "40,000+ Hours Lifespan",
-      "60° Flood Beam Pattern",
-      "Compact Design",
-      "Operating Voltage: 10-30V DC"
-    ],
-    "price": "₹1,499"
-  },
-  {
-    "id": 9,
-    "name": "Universal Mounting Brackets",
-    "description": "Universal mounting brackets for various light bar applications",
-    "image": "images/products/accessories.jpg",
-    "featured": false,
-    "categoryId": 5,
-    "specifications": [
-      "Heavy-Duty Steel Construction",
-      "Powder Coated Finish",
-      "Adjustable Angle",
-      "Fits Light Bars 20-52\"",
-      "Anti-Corrosion Treatment",
-      "Includes Mounting Hardware"
-    ],
-    "price": "₹1,299"
-  },
-  {
-    "id": 10,
-    "name": "LED Interior Light Kit",
-    "description": "Complete interior lighting kit with multiple color options and remote control",
-    "image": "images/products/interior-lights.jpg",
-    "featured": false,
-    "categoryId": 6,
-    "specifications": [
-      "12W Power Output",
-      "16 Color Options",
-      "Sound Activation Mode",
-      "Wireless Remote Control",
-      "30,000+ Hours Lifespan",
-      "Easy Plug & Play Installation"
-    ],
-    "price": "₹3,499"
-  },
-  {
-    "id": 11,
-    "name": "Slim LED Light Bar 32\"",
-    "description": "Ultra-slim profile light bar for roof mounting with minimal drag",
-    "image": "images/products/light-bar.jpg",
-    "featured": false,
-    "categoryId": 1,
-    "specifications": [
-      "180W Power Output",
-      "IP68 Waterproof Rating",
-      "50,000+ Hours Lifespan",
-      "Ultra-Slim Design",
-      "Spot & Flood Combo Beam",
-      "Operating Voltage: 9-32V DC"
-    ],
-    "price": "₹8,999"
-  },
-  {
-    "id": 12,
-    "name": "Cube LED Fog Lights (Pair)",
-    "description": "Compact cube-shaped fog lights with intense light output",
-    "image": "images/products/fog-lights.jpg",
     "featured": false,
     "categoryId": 2,
     "specifications": [
-      "80W Power Output (40W each)",
-      "IP69K Waterproof Rating",
-      "45,000+ Hours Lifespan",
-      "Compact Cube Design",
-      "60° Flood Beam Pattern",
-      "Operating Voltage: 10-30V DC"
+      "2-inch Lens Diameter",
+      "Bifocal Technology",
+      "Dual Beam Pattern",
+      "Weatherproof Housing",
+      "30,000+ Hours Lifespan",
+      "Advanced Reflector Design"
     ],
     "price": "₹5,999"
   },
   {
-    "id": 13,
-    "name": "LED DRL & Turn Signal Kit",
-    "description": "Daytime running lights with integrated turn signals for modern look",
-    "image": "images/products/headlight.jpg",
+    "id": 8,
+    "name": "TRIFOCAL FOGLIGHT PROJECTOR 3-INCH",
+    "description": "Advanced 3-inch trifocal projector with multiple beam patterns for comprehensive illumination",
+    "image": "images/products/work-light.jpg",
+    "featured": false,
+    "categoryId": 2,
+    "specifications": [
+      "3-inch Lens Diameter",
+      "Trifocal Design",
+      "Three Distinct Beam Patterns",
+      "Precision Engineered Optics",
+      "Superior Light Distribution",
+      "Operating Voltage: 10-30V DC"
+    ],
+    "price": "₹7,499"
+  },
+  {
+    "id": 9,
+    "name": "2.5-INCH HEADLIGHT PROJECTOR",
+    "description": "Compact 2.5-inch headlight projector with precision optics for improved beam pattern",
+    "image": "images/products/accessories.jpg",
     "featured": false,
     "categoryId": 3,
     "specifications": [
-      "Sequential Turn Signal",
-      "White DRL & Amber Turn Signal",
-      "Waterproof Design",
-      "Universal Fitment",
-      "35,000+ Hours Lifespan",
-      "Plug & Play Installation"
+      "2.5-inch Lens Diameter",
+      "High-Definition Cutoff",
+      "Precision Glass Lens",
+      "Bi-Xenon Compatible",
+      "Anti-Glare Technology",
+      "Universal Mounting Options"
     ],
-    "price": "₹3,999"
+    "price": "₹8,299"
+  },
+  {
+    "id": 10,
+    "name": "SQUARE HEADLIGHT PROJECTOR",
+    "description": "Unique square projector design for distinctive aesthetics and performance",
+    "image": "images/products/interior-lights.jpg",
+    "featured": false,
+    "categoryId": 3,
+    "specifications": [
+      "Square Lens Design",
+      "Precision Light Pattern",
+      "Custom Shroud Options",
+      "CNC Machined Housing",
+      "Multi-LED Compatible",
+      "Distinctive Square Cutoff"
+    ],
+    "price": "₹9,499"
+  },
+  {
+    "id": 11,
+    "name": "PRIMUS HEADLIGHT PROJECTOR",
+    "description": "Premium Primus series projector for uncompromising headlight performance",
+    "image": "images/products/light-bar.jpg",
+    "featured": true,
+    "categoryId": 3,
+    "specifications": [
+      "Primus Series Technology",
+      "Enhanced Light Output",
+      "Proprietary Lens Design",
+      "Optimized Focus Technology",
+      "Superior Light Distribution",
+      "Premium Material Construction"
+    ],
+    "price": "₹11,999"
+  },
+  {
+    "id": 12,
+    "name": "HEADLIGHT PROJECTOR ALPHA (6000K/4300K)",
+    "description": "Alpha series headlight projector with selectable color temperature",
+    "image": "images/products/fog-lights.jpg",
+    "featured": false,
+    "categoryId": 3,
+    "specifications": [
+      "Dual Color Temperature Options",
+      "6000K Cool White / 4300K Warm White",
+      "Alpha Series Technology",
+      "Advanced Reflector Design",
+      "Premium Glass Lens",
+      "Switchable Color Temperature"
+    ],
+    "price": "₹10,999"
+  },
+  {
+    "id": 13,
+    "name": "OPTIMUS HEADLIGHT PROJECTOR",
+    "description": "Top-tier Optimus projector for ultimate headlight performance and precision",
+    "image": "images/products/headlight.jpg",
+    "featured": true,
+    "categoryId": 3,
+    "specifications": [
+      "Optimus Advanced Technology",
+      "Maximum Light Output",
+      "Crystal Clear Cutoff",
+      "Premium Construction",
+      "Optimized Light Spread",
+      "Professional Installation Recommended"
+    ],
+    "price": "₹13,999"
   },
   {
     "id": 14,
-    "name": "Magnetic Work Light",
-    "description": "Versatile work light with strong magnetic base for hands-free operation",
+    "name": "DUOLENS TRIOLENS",
+    "description": "Innovative multi-lens system with switchable patterns for versatile illumination",
     "image": "images/products/work-light.jpg",
     "featured": false,
     "categoryId": 4,
     "specifications": [
-      "30W Power Output",
-      "IP67 Waterproof Rating",
-      "Strong Magnetic Base",
-      "Rotatable Design",
-      "110° Flood Beam Pattern",
-      "Rechargeable Battery Option"
+      "Multiple Lens Technology",
+      "Switchable Beam Patterns",
+      "Rotating Lens System",
+      "Advanced Optical Design",
+      "Customizable Light Output",
+      "Versatile Application Use"
     ],
-    "price": "₹2,999"
+    "price": "₹8,999"
   },
   {
     "id": 15,
-    "name": "Wiring Harness Kit",
-    "description": "Complete wiring harness kit with relay, switch and fuse for safe installation",
+    "name": "THAR ARMOUR LIGHTS",
+    "description": "Specialized lighting solution designed specifically for Mahindra Thar vehicles",
     "image": "images/products/accessories.jpg",
     "featured": false,
-    "categoryId": 5,
+    "categoryId": 4,
     "specifications": [
-      "12 Gauge Wiring",
-      "40A Relay Included",
-      "Waterproof Switch",
-      "Inline Fuse Holder",
-      "Supports up to 300W",
-      "Complete Installation Kit"
+      "Thar-Specific Design",
+      "Integrated Mounting System",
+      "Armoured Protection Housing",
+      "Offroad-Optimized Beam Pattern",
+      "Plug-and-Play Wiring",
+      "Adventure-Ready Construction"
     ],
-    "price": "₹1,499"
+    "price": "₹15,499"
   },
   {
     "id": 16,
-    "name": "LED Footwell Lighting Kit",
-    "description": "Ambient footwell lighting kit with smartphone control and music sync",
+    "name": "ALFATRON",
+    "description": "Advanced Alfatron lighting system with smart features and premium performance",
     "image": "images/products/interior-lights.jpg",
     "featured": false,
-    "categoryId": 6,
+    "categoryId": 4,
     "specifications": [
-      "10W Power Output",
-      "App Control via Bluetooth",
-      "Music Sync Feature",
-      "Voice Control Compatible",
+      "Alfatron Smart Technology",
+      "App Control Capability",
       "Multiple Lighting Modes",
-      "Easy Installation"
+      "Voice Control Compatible",
+      "Adaptive Brightness",
+      "Premium Installation Kit"
     ],
-    "price": "₹2,499"
+    "price": "₹12,499"
+  },
+  {
+    "id": 17,
+    "name": "BAR LIGHT WITH INDICATOR 22-INCH",
+    "description": "Innovative 22-inch light bar with integrated turn indicators for enhanced safety",
+    "image": "images/products/light-bar.jpg",
+    "featured": false,
+    "categoryId": 4,
+    "specifications": [
+      "22-inch Length",
+      "Integrated Turn Signals",
+      "Dual-Function Design",
+      "Amber Indicator LEDs",
+      "Synchronized Flash Patterns",
+      "All-in-One Solution"
+    ],
+    "price": "₹16,999"
+  },
+  {
+    "id": 18,
+    "name": "BLACKBOX DAMPING - TITANIUM",
+    "description": "Premium Titanium series Blackbox damping system for ultimate vibration control",
+    "image": "images/products/accessories.jpg",
+    "featured": false,
+    "categoryId": 4,
+    "specifications": [
+      "Titanium Series Technology",
+      "Advanced Vibration Damping",
+      "Premium Titanium Components",
+      "Reduces Light Bounce",
+      "Extends Product Lifespan",
+      "Professional Installation Recommended"
+    ],
+    "price": "₹7,499"
+  },
+  {
+    "id": 19,
+    "name": "BLACKBOX DAMPING - VALERIUM",
+    "description": "Specialized Valerium series Blackbox damping system for superior stability in extreme conditions",
+    "image": "images/products/accessories.jpg",
+    "featured": false,
+    "categoryId": 4,
+    "specifications": [
+      "Valerium Series Technology",
+      "Extreme Condition Rated",
+      "Proprietary Damping Material",
+      "Maximizes Light Stability",
+      "Shock and Vibration Absorption",
+      "Universal Mounting Compatibility"
+    ],
+    "price": "₹8,999"
   }
 ]
