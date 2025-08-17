@@ -2196,6 +2196,13 @@ section {
 }
 
 @media (max-width: 900px) {
+    .top-bar, .contact-info {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
     .menu-wrapper {
         position: relative;
     }
@@ -2256,5 +2263,40 @@ section {
         color: #b10705;
         cursor: pointer;
         z-index: 2101;
+    }
+    .header-contact,
+    .header-social,
+    .contact-details {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+    }
+    .header-inner {
+        padding: 8px 0;
+    }
+    .logo-menu-wrapper {
+        margin-top: 0;
+    }
+    .header {
+        border-bottom: none !important;
+    }
+    .header, .dsn-header {
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .header-contact,
+    .header-social,
+    .contact-details,
+    .header-contact * {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
     }
 }
