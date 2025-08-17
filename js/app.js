@@ -32,12 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // Initialize event listeners
 function initEventListeners() {
     // Header scroll effect
+    let lastScrollTop = 0;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
             header.classList.add('scrolled');
+            
+            // Hide/show header based on scroll direction
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down, hide header
+                header.classList.add('header-hidden');
+            } else {
+                // Scrolling up, show header
+                header.classList.remove('header-hidden');
+            }
         } else {
             header.classList.remove('scrolled');
+            header.classList.remove('header-hidden');
         }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
     // Mobile menu toggle

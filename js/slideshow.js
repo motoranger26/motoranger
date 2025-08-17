@@ -178,11 +178,33 @@ function loadSlideImages() {
     // Get all elements with data-image-src attribute
     const imageElements = document.querySelectorAll('.image-bg[data-image-src]');
     
-    // Set background image for each element
+    // Create an array to track loaded images
+    const imagePromises = [];
+    
+    // Set background image for each element and preload images
     imageElements.forEach(element => {
         const imageSrc = element.getAttribute('data-image-src');
         if (imageSrc) {
-            element.style.backgroundImage = `url(${imageSrc})`;
+            // Create a promise to track when the image is loaded
+            const promise = new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => {
+                    // Apply the background image once loaded
+                    element.style.backgroundImage = `url(${imageSrc})`;
+                    resolve();
+                };
+                img.onerror = reject;
+                img.src = imageSrc;
+            });
+            
+            imagePromises.push(promise);
         }
+    });
+    
+    // When all images are loaded, ensure the first slide is visible
+    Promise.all(imagePromises).then(() => {
+        console.log('All slideshow images loaded successfully');
+    }).catch(error => {
+        console.error('Error loading slideshow images:', error);
     });
 }
