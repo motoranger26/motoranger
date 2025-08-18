@@ -129,14 +129,7 @@ async function loadFeaturedProducts() {
         // Limit to 8 products for the homepage
         const limitedFeaturedProducts = featuredProducts.slice(0, 8);
         
-        if (featuredProductsContainer) {
-            featuredProductsContainer.innerHTML = '';
-            
-            limitedFeaturedProducts.forEach(product => {
-                const productCard = createProductCard(product);
-                featuredProductsContainer.appendChild(productCard);
-            });
-        }
+        renderFeaturedProducts(limitedFeaturedProducts);
     } catch (error) {
         console.error('Error loading featured products:', error);
         if (featuredProductsContainer) {
@@ -145,25 +138,26 @@ async function loadFeaturedProducts() {
     }
 }
 
-// Create product card element
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    
-    card.innerHTML = `
+// Hide product description for featured products on home page
+function renderFeaturedProductCard(product) {
+    return `
+    <div class="product-card">
         <div class="product-image">
             <img src="${product.image}" alt="${product.name}">
         </div>
         <div class="product-info">
             <h3>${product.name}</h3>
-            <p>${product.description}</p>
             <div class="product-footer">
-                <a href="product.html?id=${product.id}" class="btn btn-outline">View Details</a>
+                <a href="product.html?id=${product.id}" class="btn btn-outline btn-sm">View Details</a>
             </div>
         </div>
-    `;
-    
-    return card;
+    </div>`;
+}
+
+// Render featured products
+function renderFeaturedProducts(products) {
+    const container = document.getElementById('featured-products-container');
+    container.innerHTML = products.map(renderFeaturedProductCard).join('');
 }
 
 // Load categories from JSON
