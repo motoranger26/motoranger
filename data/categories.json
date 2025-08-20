@@ -2,21 +2,21 @@
   {
     "id": 1,
     "name": "LED Lights",
-    "image": "images/categories/light-bars.jpg"
+    "image": "images/products/2/165W.png"
   },
   {
     "id": 2,
     "name": "Fog Light Projectors",
-    "image": "images/categories/fog-lights.jpg"
+    "image": "images/products/7/bifocal.png"
   },
   {
     "id": 3,
     "name": "Headlight Projectors",
-    "image": "images/categories/headlights.jpg"
+    "image": "images/products/12/alfa.png"
   },
   {
     "id": 4,
     "name": "Accessories",
-    "image": "images/categories/work-lights.jpg"
+    "image": "images/products/15/Blue Light.jpg"
   }
 ]
