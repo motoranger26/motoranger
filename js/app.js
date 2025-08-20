@@ -1,7 +1,6 @@
 // DOM Elements
 const header = document.querySelector('.header');
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const mobileMenuClose = document.querySelector('.mobile-menu-close');
 const navMenu = document.querySelector('.nav-menu');
 const scrollDownBtn = document.querySelector('.scroll-down');
 const featuredProductsContainer = document.getElementById('featured-products-container');
@@ -56,18 +55,28 @@ function initEventListeners() {
     });
 
     // Mobile menu toggle
+
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', () => {
-            navMenu.classList.add('active');
-            mobileMenuToggle.classList.add('active');
-        });
-    }
+            if(mobileMenuToggle.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                const menuIcon = mobileMenuToggle.querySelector('i');
+                if (menuIcon)  {
+                    menuIcon.classList.remove('fa-close');
+                    menuIcon.classList.add('fa-bars');
+                }
+            }
+            else{
+                navMenu.classList.add('active');
+                mobileMenuToggle.classList.add('active');
+                const menuIcon = mobileMenuToggle.querySelector('i');
+                if (menuIcon) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-close');
+                }
 
-    // Mobile menu close button
-    if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
+            }
         });
     }
 
@@ -90,12 +99,18 @@ function initEventListeners() {
 
         // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(e.target) && 
-            !mobileMenuToggle.contains(e.target)) {
+        if (navMenu.classList.contains('active')
+            && !navMenu.contains(e.target)
+          && !mobileMenuToggle.contains(e.target)
+        ){
             navMenu.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
         }
+
+        if(!mobileMenuToggle.classList.contains('active')) {
+            navMenu.classList.remove('active');
+        }
+
     });
 }
 
