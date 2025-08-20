@@ -234,6 +234,15 @@
         <span class="tooltip">Buy Now</span>
     </a>
 
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="product-modal">
+      <div class="product-modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-product-image"></div>
+        <div class="modal-product-info"></div>
+      </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="js/app.js"></script>
     <script>
@@ -509,13 +518,47 @@
                         <h3>${product.name}</h3>
                         <p>${product.description}</p>
                         <div class="product-footer">
-                            <a href="product.html?id=${product.id}" class="btn btn-outline">View Details</a>
+                            <button class="btn btn-outline view-details-btn">View Details</button>
                         </div>
                     </div>
                 `;
                 
+                // Open modal on card click, unless clicking button
+                card.onclick = (e) => {
+                    if (e.target.closest('.view-details-btn')) return;
+                    openProductModal(product);
+                };
+                card.querySelector('.view-details-btn').onclick = (e) => {
+                    e.stopPropagation();
+                    openProductModal(product);
+                };
                 return card;
             }
+            
+            function openProductModal(product) {
+                const modal = document.getElementById('product-modal');
+                const imageDiv = modal.querySelector('.modal-product-image');
+                const infoDiv = modal.querySelector('.modal-product-info');
+                imageDiv.innerHTML = `<img src="${product.image}" alt="${product.name}">`;
+                infoDiv.innerHTML = `
+                    <h2>${product.name}</h2>
+                    <p>${product.description}</p>
+                    <ul>${(product.specifications||[]).map(spec => `<li>${spec}</li>`).join('')}</ul>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeProductModal() {
+                const modal = document.getElementById('product-modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelector('.close-modal').onclick = closeProductModal;
+            document.getElementById('product-modal').onclick = function(e) {
+                if (e.target === this) closeProductModal();
+            };
         });
     </script>
 </body>

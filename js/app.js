@@ -153,26 +153,73 @@ async function loadFeaturedProducts() {
     }
 }
 
+// --- Product Modal Logic (shared with products.html) ---
+function openProductModal(product) {
+    const modal = document.getElementById('product-modal');
+    const imageDiv = modal.querySelector('.modal-product-image');
+    const infoDiv = modal.querySelector('.modal-product-info');
+    imageDiv.innerHTML = `<img src="${product.image}" alt="${product.name}">`;
+    infoDiv.innerHTML = `
+        <h2>${product.name}</h2>
+        <p>${product.description}</p>
+        <ul>${(product.specifications||[]).map(spec => `<li>${spec}</li>`).join('')}</ul>
+    `;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const closeBtn = document.querySelector('.close-modal');
+    if(closeBtn) closeBtn.onclick = closeProductModal;
+    const modal = document.getElementById('product-modal');
+    if(modal) modal.onclick = function(e) {
+        if (e.target === this) closeProductModal();
+    };
+});
+
 // Hide product description for featured products on home page
 function renderFeaturedProductCard(product) {
-    return `
-    <div class="product-card">
+    const card = document.createElement('div');
+    card.className = 'product-card featured';
+    card.innerHTML = `
         <div class="product-image">
             <img src="${product.image}" alt="${product.name}">
         </div>
         <div class="product-info">
             <h3>${product.name}</h3>
             <div class="product-footer">
-                <a href="product.html?id=${product.id}" class="btn btn-outline btn-sm">View Details</a>
+                <button class="btn btn-outline view-details-btn">View Details</button>
             </div>
         </div>
-    </div>`;
+    `;
+    // Open modal when clicking anywhere on the card
+    card.onclick = (e) => {
+        // Prevent double open if button is clicked
+        if (e.target.closest('.view-details-btn')) return;
+        openProductModal(product);
+    };
+    // Still allow button to open modal
+    card.querySelector('.view-details-btn').onclick = (e) => {
+        e.stopPropagation();
+        openProductModal(product);
+    };
+    return card;
 }
 
 // Render featured products
 function renderFeaturedProducts(products) {
     const container = document.getElementById('featured-products-container');
-    container.innerHTML = products.map(renderFeaturedProductCard).join('');
+    container.innerHTML = '';
+    products.forEach(product => {
+        const card = renderFeaturedProductCard(product);
+        container.appendChild(card);
+    });
 }
 
 // Load categories from JSON
@@ -415,4 +462,19 @@ function initScrollAnimations() {
             }
         });
     });
+}
+
+// --- Product Card Modal Trigger on products.html ---
+if (typeof createProductCard === 'function') {
+    const oldCreateProductCard = createProductCard;
+    createProductCard = function(product) {
+        const card = oldCreateProductCard(product);
+        card.onclick = (e) => {
+            if (e.target.closest('.view-details-btn')) return;
+            openProductModal(product);
+        };
+        const btn = card.querySelector('.view-details-btn');
+        if(btn) btn.onclick = (e) => { e.stopPropagation(); openProductModal(product); };
+        return card;
+    }
 }

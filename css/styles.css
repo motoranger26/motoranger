@@ -2321,3 +2321,62 @@ section {
         padding: 10px 8px;
     }
 }
+
+.product-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(10,10,10,0.95);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s;
+}
+.product-modal.active {
+  display: flex;
+}
+.product-modal-content {
+  background: #18181c;
+  border-radius: 18px;
+  padding: 40px 24px;
+  max-width: 700px;
+  width: 95vw;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2.2rem;
+  color: #b10705;
+  cursor: pointer;
+  z-index: 10;
+}
+.modal-product-image img {
+  max-width: 320px;
+  max-height: 280px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  object-fit: contain;
+  background: #23242a;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.modal-product-info {
+  width: 100%;
+  text-align: left;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
