@@ -1590,7 +1590,7 @@ section {
 .section-bg2 > .container {
     position: relative;
     z-index: 3;
-    background: #23242a;
+    background: #303238;
     border-radius: 22px;
     padding: 42px 4vw;
     box-shadow: 0 4px 24px rgba(0,0,0,0.10);
@@ -2342,9 +2342,10 @@ section {
 .product-modal-content {
   background: #18181c;
   border-radius: 18px;
-  padding: 40px 24px;
-  max-width: 700px;
-  width: 95vw;
+  padding: 20px 4px;
+  max-width: 1000px;
+  width: fit-content;
+    height: fit-content;
   color: #fff;
   position: relative;
   box-shadow: 0 8px 32px rgba(0,0,0,0.5);
@@ -2362,12 +2363,11 @@ section {
   z-index: 10;
 }
 .modal-product-image img {
-  max-width: 320px;
-  max-height: 280px;
+  max-width: 1200px;
+  max-height: 800px;
   width: 100%;
   height: auto;
   border-radius: 12px;
-  margin-bottom: 18px;
   object-fit: contain;
   background: #23242a;
   box-shadow: 0 2px 12px rgba(0,0,0,0.15);

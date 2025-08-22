@@ -158,12 +158,12 @@ function openProductModal(product) {
     const modal = document.getElementById('product-modal');
     const imageDiv = modal.querySelector('.modal-product-image');
     const infoDiv = modal.querySelector('.modal-product-info');
-    imageDiv.innerHTML = `<img src="${product.image}" alt="${product.name}">`;
-    infoDiv.innerHTML = `
-        <h2>${product.name}</h2>
-        <p>${product.description}</p>
-        <ul>${(product.specifications||[]).map(spec => `<li>${spec}</li>`).join('')}</ul>
-    `;
+    imageDiv.innerHTML = `<img src="images/products/1/led165modal.png" alt="${product.name}">`;
+    // infoDiv.innerHTML = `
+    //     <h2>${product.name}</h2>
+    //     <p>${product.description}</p>
+    //     <ul>${(product.specifications||[]).map(spec => `<li>${spec}</li>`).join('')}</ul>
+    // `;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
