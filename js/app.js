@@ -157,7 +157,6 @@ async function loadFeaturedProducts() {
 function openProductModal(product) {
     const modal = document.getElementById('product-modal');
     const imageDiv = modal.querySelector('.modal-product-image');
-    const infoDiv = modal.querySelector('.modal-product-info');
     imageDiv.innerHTML = `<img src="images/products/${product.id}/detail.png" alt="${product.name}">`;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
