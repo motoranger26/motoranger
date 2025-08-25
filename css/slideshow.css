@@ -4,11 +4,12 @@
 .dsn-slider {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
-    min-height: 700px; /* Minimum height for smaller screens */
+    height: calc(100vh - 80px); /* Subtract header height */
+    min-height: calc(100vh - 80px);
     overflow: hidden;
-    background-color: transparent; /* Remove background color for seamless blending */
-    z-index: 0; /* Keep slider behind navbar but above other content */
+    background-color: var(--bg-dark);
+    z-index: 0;
+    margin-top: 80px; /* Position directly below header */
 }
 
 .dsn-slider-content {
@@ -57,22 +58,24 @@
     z-index: 1;
 }
 
+/* Image background styles to ensure full screen coverage */
 .image-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: cover; /* Changed back to cover for full screen coverage */
     background-position: center center;
     background-repeat: no-repeat;
     transform: scale(1.1);
     transition: transform 8s ease; /* Slower transform for more dramatic effect */
     will-change: transform; /* Performance optimization */
+    z-index: 5; /* Ensure image is on top */
 }
 
 .slide-item.active .image-bg {
-    transform: scale(1);
+    transform: scale(1); /* This activates the zoom animation for active slides */
 }
 
 .overlay {
@@ -303,41 +306,41 @@
 /* BlackDSN-style Dot Navigation */
 .slider-dots {
     position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20; /* Increase z-index to ensure visibility */
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .dot-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
 .dot {
-    width: 30px;
-    height: 30px;
-    margin: 10px 0;
+    width: 22px; /* Bigger dots */
+    height: 22px;
+    margin: 0 8px;
     position: relative;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .dot::before {
     content: '';
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 8px; /* Bigger dot indicator */
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .dot span {
@@ -348,7 +351,7 @@
     border-radius: 50%;
     opacity: 0;
     transform: scale(0);
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .dot.active::before {
@@ -357,98 +360,80 @@
 }
 
 .dot.active span {
-    width: 12px;
+    width: 12px; /* Bigger active dot */
     height: 12px;
     opacity: 1;
     transform: scale(1);
 }
 
-.dot:hover::before {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.dot:hover {
-    transform: scale(1.2);
-}
-
-.slider-nav-prev i,
-.slider-nav-next i {
-    font-size: 1rem;
-    color: #fff;
-}
-
-/* Slider Progress Bar Styles */
-.slider-progress-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: rgba(255, 255, 255, 0.1);
-    z-index: 10;
-}
-
-.progress-line {
+/* Vertical Navigation Arrows for All Screens - more elegant and smaller */
+.slider-vertical-nav {
     position: absolute;
     top: 0;
-    left: 0;
     height: 100%;
-    width: 0;
+    width: 50px;
+    z-index: 20; /* Increase z-index to ensure visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-vertical-nav.left {
+    left: 0;
+}
+
+.slider-vertical-nav.right {
+    right: 0;
+}
+
+.nav-arrow {
+    position: relative;
+    width: 32px; /* Smaller arrows */
+    height: 32px;
+    background-color: rgba(220, 53, 69, 0.6); /* More transparent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    border-radius: 50%; /* Make them circular for elegance */
+}
+
+.nav-arrow:hover {
     background-color: var(--primary-color);
-    transition: width 0.1s linear;
+    transform: scale(1.1); /* Subtle scale effect on hover */
 }
 
-/* Media Queries */
-@media (max-width: 991px) {
-    .slide-title h1 {
-        font-size: 3rem;
-    }
-    
-    .dsn-slider-navigation {
-        bottom: 30px;
-        right: 30px;
-    }
+.nav-arrow i {
+    font-size: 14px; /* Smaller icon */
 }
 
-@media (max-width: 767px) {
-    .slide-title h1 {
-        font-size: 2.5rem;
+/* Media queries adjustments */
+@media (min-width: 992px) {
+    /* Position slider correctly below navbar */
+    .dsn-slider {
+        height: calc(100vh - 80px); /* Adjust based on header height */
+        min-height: calc(100vh - 80px);
+        margin-top: 80px; /* Match header height */
+        padding-top: 0;
     }
-    
-    .slide-description p {
-        font-size: 1rem;
-    }
-    
-    .dsn-slider-navigation {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .slider-nav-count {
+
+    /* Remove overlay on desktop to show pure images */
+    .overlay {
         display: none;
     }
+
+    /* Ensure images fill the entire space */
+    .image-bg {
+        background-size: cover;
+        background-position: center center;
+    }
 }
 
-@media (max-width: 576px) {
-    .slide-title h1 {
-        font-size: 2rem;
-    }
-    
-    .slide-meta {
-        flex-direction: column;
-    }
-    
-    .slide-meta-item {
-        margin-bottom: 10px;
-    }
-    
-    .slide-description p {
-        font-size: 0.9rem;
-    }
-    
-    .slider-nav-prev,
-    .slider-nav-next {
-        width: 40px;
-        height: 40px;
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    .dsn-slider {
+        padding-top: 60px; /* Space for mobile header */
     }
 }

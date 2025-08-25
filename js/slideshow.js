@@ -17,25 +17,13 @@ function initSlider() {
     const slides = slider.querySelectorAll('.slide-item');
     const totalSlides = slides.length;
     const progressLine = slider.querySelector('.progress-line');
-    const currentSlideEl = slider.querySelector('.slider-nav-count .current');
-    const totalSlidesEl = slider.querySelector('.slider-nav-count .total');
     const dots = slider.querySelectorAll('.dot');
-    
+    const prevArrow = slider.querySelector('#prev-slide');
+    const nextArrow = slider.querySelector('#next-slide');
+
     let currentSlide = 0;
     let slideInterval;
     let progressInterval;
-    
-    // Set total slides count
-    if (totalSlidesEl) {
-        totalSlidesEl.textContent = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
-    }
-    
-    // Update current slide number
-    function updateSlideNumber() {
-        if (currentSlideEl) {
-            currentSlideEl.textContent = currentSlide + 1 < 10 ? `0${currentSlide + 1}` : currentSlide + 1;
-        }
-    }
     
     // Update active dot
     function updateActiveDot() {
@@ -92,7 +80,6 @@ function initSlider() {
             slides[currentSlide].classList.add('active', 'slide-enter');
             
             // Update UI elements
-            updateSlideNumber();
             updateActiveDot();
             
             // Start progress bar
@@ -133,7 +120,6 @@ function initSlider() {
         slides[0].classList.add('active');
     }
     
-    updateSlideNumber();
     updateActiveDot();
     startProgress();
     startAutoRotation();
@@ -146,6 +132,21 @@ function initSlider() {
         });
     });
     
+    // Set up event listeners for vertical arrow navigation
+    if (prevArrow) {
+        prevArrow.addEventListener('click', function() {
+            prevSlide();
+            startAutoRotation();
+        });
+    }
+
+    if (nextArrow) {
+        nextArrow.addEventListener('click', function() {
+            nextSlide();
+            startAutoRotation();
+        });
+    }
+
     // Touch support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
