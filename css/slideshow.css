@@ -8,7 +8,6 @@
     min-height: 700px; /* Minimum height for smaller screens */
     overflow: hidden;
     background-color: transparent; /* Remove background color for seamless blending */
-    margin-bottom: -120px; /* Create overlap with next section */
     z-index: 0; /* Keep slider behind navbar but above other content */
 }
 
