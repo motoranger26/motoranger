@@ -237,9 +237,14 @@
     <!-- Product Details Modal -->
     <div id="product-modal" class="product-modal">
       <div class="product-modal-content">
-        <span class="close-modal">&times;</span>
-        <div class="modal-product-image"></div>
-        <div class="modal-product-info"></div>
+        <div class="modal-header">
+          <span class="close-modal">×</span>
+        </div>
+        <div class="modal-product-image"><img src="images/products/2/detail.png" alt="LED 165W"></div>
+        <div class="modal-footer">
+          <span class="modal-mrp-label">MRP:</span>
+          <span class="modal-mrp-value">₹0.00</span>
+        </div>
       </div>
     </div>
 
@@ -539,6 +544,9 @@
                 const modal = document.getElementById('product-modal');
                 const imageDiv = modal.querySelector('.modal-product-image');
                 imageDiv.innerHTML = `<img src="images/products/${product.id}/detail.png" alt="${product.name}">`;
+                // Set MRP in modal
+                const mrpSpan = modal.querySelector('.modal-mrp-value');
+                if (mrpSpan) mrpSpan.textContent = product.price || '';
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }

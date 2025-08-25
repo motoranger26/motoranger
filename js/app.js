@@ -154,18 +154,15 @@ async function loadFeaturedProducts() {
 }
 
 // --- Product Modal Logic (shared with products.html) ---
-function openProductModal(product) {
+async function openProductModal(product) {
     const modal = document.getElementById('product-modal');
     const imageDiv = modal.querySelector('.modal-product-image');
     imageDiv.innerHTML = `<img src="images/products/${product.id}/detail.png" alt="${product.name}">`;
+    // Set MRP only
+    const mrpSpan = modal.querySelector('.modal-mrp-value');
+    if (mrpSpan) mrpSpan.textContent = product.price || '';
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-}
-
-function closeProductModal() {
-    const modal = document.getElementById('product-modal');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -471,4 +468,10 @@ if (typeof createProductCard === 'function') {
         if(btn) btn.onclick = (e) => { e.stopPropagation(); openProductModal(product); };
         return card;
     }
+}
+
+function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
 }
