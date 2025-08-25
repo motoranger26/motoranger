@@ -1,5 +1,14 @@
 /* Alternative Design 2 - Futuristic Neon Theme */
 
+/* Bank Gothic font-face setup */
+@font-face {
+    font-family: 'Bank Gothic';
+    src: url('../fonts/BankGothicMediumBT.ttf') format('truetype'),
+         url('../fonts/Bank Gothic Light Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --primary-color: #b10705;
     --primary-glow: rgba(177, 7, 5, 0.5);
@@ -10,7 +19,7 @@
     --bg-dark: #0a0a0a;
     --bg-darker: #050505;
     --bg-light: #111111;
-    --font-primary: 'Orbitron', sans-serif;
+    --font-primary: 'Bank Gothic', 'Orbitron', 'Exo 2', sans-serif;
     --font-secondary: 'Exo 2', sans-serif;
     --transition: all 0.3s ease;
 }
@@ -26,7 +35,7 @@ html {
 }
 
 body {
-    font-family: var(--font-secondary);
+    font-family: 'Bank Gothic', Arial, sans-serif !important;
     background-color: var(--bg-dark);
     color: var(--text-color);
     line-height: 1.6;
