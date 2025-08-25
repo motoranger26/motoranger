@@ -138,7 +138,7 @@
                     <a href="about.html" class="btn btn-primary">Learn More</a>
                 </div>
                 <div class="video-wrapper">
-                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/watch?v=RShe4ihzn6E">
+                    <div class="video-thumbnail" data-video-url="https://www.youtube.com/embed/RShe4ihzn6E">
                         <img src="images/video-thumb.jpg" alt="Video Thumbnail">
                         <div class="play-button">
                             <i class="fas fa-play"></i>
@@ -374,6 +374,20 @@
             // Video modal functionality
             const videoThumbnail = document.querySelector('.video-thumbnail');
             if (videoThumbnail) {
+                // Extract YouTube video ID from the URL
+                const videoUrl = videoThumbnail.getAttribute('data-video-url');
+                const videoId = videoUrl.split('/').pop();
+
+                // Set the YouTube thumbnail as the image source
+                const thumbnailImg = videoThumbnail.querySelector('img');
+                if (thumbnailImg && videoId) {
+                    thumbnailImg.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                    thumbnailImg.onerror = function() {
+                        // If maxresdefault isn't available, fall back to hqdefault
+                        this.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                    };
+                }
+
                 videoThumbnail.addEventListener('click', function() {
                     const videoUrl = this.getAttribute('data-video-url');
                     
