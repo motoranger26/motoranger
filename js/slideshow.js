@@ -182,10 +182,24 @@ function loadSlideImages() {
     // Create an array to track loaded images
     const imagePromises = [];
     
+    // Function to determine if we're on mobile
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+    
     // Set background image for each element and preload images
     imageElements.forEach(element => {
-        const imageSrc = element.getAttribute('data-image-src');
-        if (imageSrc) {
+        const baseImageSrc = element.getAttribute('data-image-src');
+        const mobileImageSrc = element.getAttribute('data-image-src-mobile');
+        
+        if (baseImageSrc) {
+            // Determine which image to use based on screen size
+            let imageSrc = baseImageSrc; // Default to desktop image
+            
+            if (isMobile() && mobileImageSrc) {
+                imageSrc = mobileImageSrc; // Use mobile image if available and on mobile
+            }
+            
             // Create a promise to track when the image is loaded
             const promise = new Promise((resolve, reject) => {
                 const img = new Image();
@@ -209,3 +223,12 @@ function loadSlideImages() {
         console.error('Error loading slideshow images:', error);
     });
 }
+
+// Add window resize listener to reload images when switching between mobile/desktop
+window.addEventListener('resize', function() {
+    // Debounce the resize event
+    clearTimeout(window.resizeTimeout);
+    window.resizeTimeout = setTimeout(function() {
+        loadSlideImages();
+    }, 250);
+});

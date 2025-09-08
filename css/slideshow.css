@@ -9,7 +9,8 @@
     overflow: hidden;
     background-color: var(--bg-dark);
     z-index: 0;
-    margin-top: 80px; /* Position directly below header */
+    /*margin-top: 80px; !* Position directly below header *!*/
+    top: 93px;
 }
 
 .dsn-slider-content {
@@ -68,7 +69,7 @@
     background-size: cover; /* Changed back to cover for full screen coverage */
     background-position: center center;
     background-repeat: no-repeat;
-    transform: scale(1.1);
+    transform: scale(1);
     transition: transform 8s ease; /* Slower transform for more dramatic effect */
     will-change: transform; /* Performance optimization */
     z-index: 5; /* Ensure image is on top */
