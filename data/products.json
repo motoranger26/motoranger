@@ -269,7 +269,7 @@
       "Adaptive Brightness",
       "Premium Installation Kit"
     ],
-    "price": "₹12,499"
+    "price": "₹"
   },
   {
     "id": 17,
@@ -303,7 +303,7 @@
       "Extends Product Lifespan",
       "Professional Installation Recommended"
     ],
-    "price": "₹7,499"
+    "price": "₹19990"
   },
   {
     "id": 19,
@@ -320,6 +320,6 @@
       "Shock and Vibration Absorption",
       "Universal Mounting Compatibility"
     ],
-    "price": "₹8,999"
+    "price": "₹28990"
   }
 ]
