@@ -4,17 +4,19 @@
 .dsn-slider {
     position: relative;
     width: 100%;
-    height: calc(100vh - 80px); /* Subtract header height */
-    min-height: calc(100vh - 80px);
+    height: calc(100vh - 93px);
+    min-height: calc(100vh - 93px);
     overflow: hidden;
     background-color: var(--bg-dark);
     z-index: 0;
-    /*margin-top: 80px; !* Position directly below header *!*/
-    top: 93px;
+    margin-top: 93px;
+    top: 0;
 }
 
 .dsn-slider-content {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
@@ -37,6 +39,32 @@
     visibility: visible;
 }
 
+.slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Image background styles */
+.image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 5;
+}
+
+.slide-item.active .image-bg {
+    /* No transform to prevent cutting */
+}
+
 /* BlackDSN-style slide transition animations */
 .slide-item.slide-exit {
     opacity: 0;
@@ -48,35 +76,6 @@
     opacity: 1;
     transform: scale(1);
     transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.slide-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-/* Image background styles to ensure full screen coverage */
-.image-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* Changed back to cover for full screen coverage */
-    background-position: center center;
-    background-repeat: no-repeat;
-    transform: scale(1);
-    transition: transform 8s ease; /* Slower transform for more dramatic effect */
-    will-change: transform; /* Performance optimization */
-    z-index: 5; /* Ensure image is on top */
-}
-
-.slide-item.active .image-bg {
-    transform: scale(1); /* This activates the zoom animation for active slides */
 }
 
 .overlay {
@@ -410,22 +409,18 @@
     font-size: 14px; /* Smaller icon */
 }
 
-/* Media queries adjustments */
+/* Desktop adjustments */
 @media (min-width: 992px) {
-    /* Position slider correctly below navbar */
     .dsn-slider {
-        height: calc(100vh - 80px); /* Adjust based on header height */
-        min-height: calc(100vh - 80px);
-        margin-top: 80px; /* Match header height */
-        padding-top: 0;
+        height: calc(100vh - 93px);
+        min-height: calc(100vh - 93px);
+        margin-top: 93px;
     }
 
-    /* Remove overlay on desktop to show pure images */
     .overlay {
         display: none;
     }
 
-    /* Ensure images fill the entire space */
     .image-bg {
         background-size: cover;
         background-position: center center;
@@ -435,6 +430,23 @@
 /* Mobile-specific adjustments */
 @media (max-width: 767px) {
     .dsn-slider {
-        padding-top: 60px; /* Space for mobile header */
+        height: calc(100vh - 93px);
+        min-height: calc(100vh - 93px);
+        margin-top: 93px;
+    }
+    
+    .image-bg {
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+    }
+    
+    .slider-dots {
+        bottom: 30px;
+        z-index: 25;
+    }
+    
+    .slider-vertical-nav {
+        z-index: 25;
     }
 }
