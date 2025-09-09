@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "LED 120W",
-    "description": "High-performance 120W LED light for superior brightness and durability",
+    "description": "Bright, reliable upgrade that replaces original car LEDs for excellent road visibility.",
     "image": "images/products/1/120W.jpg",
     "featured": false,
     "categoryId": 1,
@@ -19,7 +19,7 @@
   {
     "id": 2,
     "name": "LED 165W",
-    "description": "Powerful 165W LED lighting solution for maximum visibility in all conditions",
+    "description": "Superior brightness for safe night driving, a direct replacement for stock LEDs.",
     "image": "images/products/2/165W.png",
     "featured": true,
     "categoryId": 1,
@@ -53,7 +53,7 @@
   {
     "id": 4,
     "name": "LED 250W",
-    "description": "Ultimate 250W LED lighting solution for extreme off-road applications",
+    "description": "Ultimate brightness upgrade, replacing original LEDs for unmatched night performance.",
     "image": "images/products/4/250W.png",
     "featured": false,
     "categoryId": 1,
@@ -70,7 +70,7 @@
   {
     "id": 5,
     "name": "D-SERIES LED",
-    "description": "Premium D-Series LED lights with specialized optics for optimized beam pattern",
+    "description": " Premium car LED upgrade delivering superior light output and visibility.",
     "image": "images/products/5/D-Series.jpg",
     "featured": false,
     "categoryId": 1,
@@ -87,7 +87,7 @@
   {
     "id": 6,
     "name": "MONOFOCAL FOGLIGHT PROJECTOR 3-INCH",
-    "description": "3-inch monofocal foglight projector with sharp cutoff for improved visibility without glare",
+    "description": "High light output with great value, enhancing road clarity while driving at night ",
     "image": "images/products/6/monofog.png",
     "featured": false,
     "categoryId": 2,
@@ -104,7 +104,7 @@
   {
     "id": 7,
     "name": "BIFOCAL FOGLIGHT PROJECTOR 2-INCH",
-    "description": "Compact 2-inch bifocal foglight projector for dual-pattern illumination",
+    "description": "2-inch plug-and-play projector for Toyota and other cars with excellent brightness.",
     "image": "images/products/7/bifocal.png",
     "featured": false,
     "categoryId": 2,
@@ -121,7 +121,7 @@
   {
     "id": 8,
     "name": "TRIFOCAL FOGLIGHT PROJECTOR 3-INCH",
-    "description": "Advanced 3-inch trifocal projector with multiple beam patterns for comprehensive illumination",
+    "description": "Advanced trifocal lens projector offering ultimate brightness and throw on the road while night driving",
     "image": "images/products/8/trifocal.jpg",
     "featured": false,
     "categoryId": 2,
@@ -138,7 +138,7 @@
   {
     "id": 9,
     "name": "2.5-INCH HEADLIGHT PROJECTOR",
-    "description": "Compact 2.5-inch headlight projector with precision optics for improved beam pattern",
+    "description": "2.5 inch Headlight Projector  for Good light output",
     "image": "images/products/9/headlight.png",
     "featured": false,
     "categoryId": 3,
@@ -155,7 +155,7 @@
   {
     "id": 10,
     "name": "SQUARE HEADLIGHT PROJECTOR",
-    "description": "Unique square projector design for distinctive aesthetics and performance",
+    "description": "Specific Square shaped Headlight Projector with superb light output on the road",
     "image": "images/products/10/square.jpeg",
     "featured": false,
     "categoryId": 3,
@@ -172,7 +172,7 @@
   {
     "id": 11,
     "name": "PRIMUS HEADLIGHT PROJECTOR",
-    "description": "Premium Primus series projector for uncompromising headlight performance",
+    "description": "Superior value for money Headlight projector upgrade with bright, clear output",
     "image": "images/products/11/primus.jpg",
     "featured": false,
     "categoryId": 3,
@@ -188,8 +188,8 @@
   },
   {
     "id": 12,
-    "name": "HEADLIGHT PROJECTOR",
-    "description": "Alpha series headlight projector with selectable color temperature",
+    "name": "ALPHA HEADLIGHT PROJECTOR",
+    "description": "Superior light output with premium visibility and build quality and a trifocal lens",
     "image": "images/products/12/alpha.png",
     "featured": true,
     "categoryId": 3,
@@ -206,7 +206,7 @@
   {
     "id": 13,
     "name": "OPTIMUS HEADLIGHT PROJECTOR",
-    "description": "Top-tier Optimus projector for ultimate headlight performance and precision",
+    "description": "The Ultimate premium Headlight Projector with a Trifocal Lens delivering top-tier brightness and superior throw and spread",
     "image": "images/products/13/optimus.jpg",
     "featured": true,
     "categoryId": 3,
@@ -223,7 +223,7 @@
   {
     "id": 14,
     "name": "DUOLENS TRIOLENS",
-    "description": "Innovative multi-lens system with switchable patterns for versatile illumination",
+    "description": "Easy to fit grill lights good strong brightness on the roads",
     "image": "images/products/14/duo.png",
     "featured": false,
     "categoryId": 4,
@@ -240,7 +240,7 @@
   {
     "id": 15,
     "name": "THAR ARMOUR LIGHTS",
-    "description": "Specialized lighting solution designed specifically for Mahindra Thar vehicles",
+    "description": "Premium Thar headlights with superb output and stunning off-road looks.",
     "image": "images/products/15/Blue light.jpg",
     "featured": false,
     "categoryId": 4,
@@ -260,7 +260,7 @@
     "description": "Advanced Alfatron lighting system with smart features and premium performance",
     "image": "images/products/16/alfatron.jpg",
     "featured": false,
-    "categoryId": 4,
+    "categoryId": 7,
     "specifications": [
       "Alfatron Smart Technology",
       "App Control Capability",
@@ -275,9 +275,9 @@
     "id": 17,
     "name": "BAR LIGHT WITH INDICATOR 22-INCH",
     "description": "Innovative 22-inch light bar with integrated turn indicators for enhanced safety",
-    "image": "images/products/light-bar.jpg",
+    "image": "images/products/17/detail.png",
     "featured": false,
-    "categoryId": 4,
+    "categoryId": 5,
     "specifications": [
       "22-inch Length",
       "Integrated Turn Signals",
@@ -292,9 +292,9 @@
     "id": 18,
     "name": "BLACKBOX DAMPING - TITANIUM",
     "description": "Premium Titanium series Blackbox damping system for ultimate vibration control",
-    "image": "images/products/accessories.jpg",
+    "image": "images/products/18/detail.png",
     "featured": false,
-    "categoryId": 4,
+    "categoryId": 6,
     "specifications": [
       "Titanium Series Technology",
       "Advanced Vibration Damping",
@@ -309,9 +309,9 @@
     "id": 19,
     "name": "BLACKBOX DAMPING - VALERIUM",
     "description": "Specialized Valerium series Blackbox damping system for superior stability in extreme conditions",
-    "image": "images/products/accessories.jpg",
+    "image": "images/products/19/detail.png",
     "featured": false,
-    "categoryId": 4,
+    "categoryId": 6,
     "specifications": [
       "Valerium Series Technology",
       "Extreme Condition Rated",
