@@ -225,36 +225,13 @@
     <section id="gallery" class="section-bg2">
         <div class="container">
             <div class="section-header">
-                <h2>Our Gallery</h2>
+                <h2>Featured Videos</h2>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/gallery/gallery-1.jpg" alt="Gallery Image 1">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/gallery-2.jpg" alt="Gallery Image 2">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/gallery-3.jpg" alt="Gallery Image 3">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/gallery/gallery-4.jpg" alt="Gallery Image 4">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
+            <div class="gallery-grid" id="featured-gallery-container">
+                <!-- Featured videos will be loaded dynamically -->
             </div>
             <div class="view-all">
-                <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
+                <a href="gallery.html" class="btn btn-outline">View All Videos</a>
             </div>
         </div>
     </section>
@@ -340,6 +317,9 @@
             const mobileMenuClose = document.querySelector('.mobile-menu-close');
             const navMenu = document.querySelector('.nav-menu');
             const menuLinks = document.querySelectorAll('.nav-menu ul li a');
+            
+            // Load featured gallery videos
+            loadFeaturedGallery();
 
             if (mobileMenuToggle) {
                 mobileMenuToggle.addEventListener('click', function() {
@@ -406,6 +386,120 @@
                             document.body.removeChild(modal);
                         }
                     });
+                });
+            }
+            
+            // Load featured gallery videos
+            async function loadFeaturedGallery() {
+                try {
+                    const response = await fetch('data/gallery.json');
+                    const galleryItems = await response.json();
+                    
+                    // Filter featured videos only
+                    const featuredVideos = galleryItems.filter(item => item.type === 'video' && item.featured === true);
+                    
+                    const galleryContainer = document.getElementById('featured-gallery-container');
+                    if (galleryContainer) {
+                        galleryContainer.innerHTML = '';
+                        
+                        featuredVideos.forEach(video => {
+                            const galleryItem = document.createElement('div');
+                            galleryItem.className = 'gallery-item';
+                            
+                            // Extract YouTube video ID for thumbnail
+                            const videoId = video.videoUrl.split('/').pop();
+                            const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+                            
+                            galleryItem.innerHTML = `
+                                <img src="${thumbnailUrl}" alt="${video.title}" onerror="this.src='https://img.youtube.com/vi/${videoId}/hqdefault.jpg'">
+                                <div class="gallery-overlay">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                            `;
+                            
+                            // Add click event to open video modal
+                            galleryItem.addEventListener('click', function() {
+                                openVideoModal(video);
+                            });
+                            
+                            galleryContainer.appendChild(galleryItem);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error loading featured gallery:', error);
+                }
+            }
+            
+            // Open video modal
+            function openVideoModal(video) {
+                const modal = document.createElement('div');
+                modal.className = 'video-modal';
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 1000;
+                `;
+                
+                modal.innerHTML = `
+                    <div class="video-modal-content" style="
+                        max-width: 90%;
+                        max-height: 90%;
+                        position: relative;
+                        background-color: var(--bg-darker);
+                        border-radius: 8px;
+                        overflow: hidden;
+                    ">
+                        <span class="close-modal" style="
+                            position: absolute;
+                            top: 10px;
+                            right: 10px;
+                            font-size: 2rem;
+                            color: var(--text-color);
+                            cursor: pointer;
+                            z-index: 10;
+                            transition: var(--transition);
+                        ">&times;</span>
+                        <div class="video-container" style="
+                            position: relative;
+                            padding-bottom: 56.25%;
+                            height: 0;
+                            width: 100%;
+                        ">
+                            <iframe src="${video.videoUrl}" frameborder="0" allowfullscreen style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                            "></iframe>
+                        </div>
+                        <div class="modal-info" style="padding: 20px;">
+                            <h3 style="font-size: 1.5rem; margin-bottom: 10px;">${video.title}</h3>
+                            <p style="font-size: 1rem; color: var(--text-light);">${video.description}</p>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Close modal functionality
+                const closeBtn = modal.querySelector('.close-modal');
+                closeBtn.addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                });
+                
+                // Close modal when clicking outside
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        document.body.removeChild(modal);
+                    }
                 });
             }
         });
