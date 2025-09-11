@@ -257,7 +257,7 @@
   {
     "id": 16,
     "name": "ALFATRON",
-    "description": "Advanced Alfatron lighting system with smart features and premium performance",
+    "description": "Car Specific High-Performance Multi-Projector headlight systems",
     "image": "images/products/16/alfatron.jpg",
     "featured": false,
     "categoryId": 7,
@@ -277,7 +277,7 @@
     "description": "Innovative 22-inch light bar with integrated turn indicators for enhanced safety",
     "image": "images/products/17/detail.png",
     "featured": false,
-    "categoryId": 5,
+    "categoryId": 4,
     "specifications": [
       "22-inch Length",
       "Integrated Turn Signals",
